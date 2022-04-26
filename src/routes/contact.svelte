@@ -1,4 +1,4 @@
-<script>
+<script type="module">
 	export const prerender = true;
 </script>
 
