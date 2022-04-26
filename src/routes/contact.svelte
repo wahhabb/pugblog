@@ -13,6 +13,8 @@
         You can also send me email at the email address listed on my github account (wahhabb).
     
     form(name="contact" method="POST" data-netlify="true")
+        <input type="hidden" name="form-name" value="contact">
+
         div
             label(for='name') Your Name: 
             input(type="text", name="name")
