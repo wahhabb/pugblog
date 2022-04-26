@@ -1,22 +1,8 @@
-<header>
-	<p class="logo"><a href="/">Deep Web Works</a></p>
-	<nav class="primary-navigation">
-		<ul>
-			<li><a href="/">Home</a></li>
-			<li>
-				<a href="/blog">Blog &dtrif;</a>
-				<ul class="dropdown">
-					<li><a href="/blog/calc">Build a Svelte Calculator Component</a></li>
-					<li><a href="/blog/sveltekit">Use SvelteKit with MySQL</a></li>
-					<li><a href="/blog/mysite">How this Site was Built</a></li>
-				</ul>
-			</li>
-			<li><a href="/about">About</a></li>
-			<li><a href="/contact">Contact</a></li>
-		</ul>
-	</nav>
-</header>
+<script>
+	import Header from '../components/Header.svelte';
+</script>
 
+<Header />
 <main>
 	<slot />
 </main>
@@ -57,7 +43,7 @@
 	h5 {
 		font-weight: 500;
 	}
-	/* Demo Specific Styles */
+
 	body {
 		margin: 0 auto;
 		max-width: 60em;
@@ -86,6 +72,7 @@
 	.bdr_1 {
 		border: 1px solid #666;
 		border-radius: 1em;
+		box-shadow: 3px 4px 10px #888;
 	}
 	header,
 	main,
@@ -109,84 +96,6 @@
 		color: var(--brown);
 	}
 
-	/****** MAIN MENU ********/
-	nav.primary-navigation {
-		margin: 0 auto;
-		display: block;
-		text-align: center;
-		margin-top: -1em;
-	}
-	nav ul li {
-		list-style: none;
-		margin: 0 auto;
-		border-left: 2px solid var(--brown);
-		display: inline-block;
-		padding: 0 30px;
-		position: relative;
-		text-decoration: none;
-		text-align: center;
-	}
-
-	nav li a,
-	nav li a:visited {
-		color: var(--brown);
-	}
-
-	nav li a:hover,
-	nav li a:active {
-		color: var(--hover);
-	}
-
-	nav li:hover {
-		cursor: pointer;
-	}
-
-	nav ul li ul {
-		visibility: hidden;
-		opacity: 0;
-		position: absolute;
-		padding-left: 0;
-		left: 0;
-		display: none;
-		background: white;
-	}
-
-	nav ul li:hover > ul,
-	nav ul li ul:hover {
-		visibility: visible;
-		opacity: 1;
-		display: block;
-		min-width: 250px;
-		text-align: left;
-		padding-top: 20px;
-		padding-right: 1em;
-		box-shadow: 0px 3px 5px -1px #ccc;
-	}
-
-	nav ul li ul li {
-		clear: both;
-		width: 100%;
-		text-align: left;
-		margin-bottom: 20px;
-		border-style: none;
-	}
-
-	nav ul li ul li a:hover {
-		padding-left: 10px;
-		border-left: 2px solid var(--brown);
-		transition: all 0.3s ease;
-	}
-
-	nav a {
-		text-decoration: none;
-	}
-	nav a:hover {
-		color: var(--brown);
-	}
-
-	nav ul li ul li a {
-		transition: all 0.5s ease;
-	}
 	span.code {
 		font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	}

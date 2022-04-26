@@ -1,36 +1,46 @@
 <script>
-	import Prism from '../PrismJS.svelte';
-
-	let code_sample = `
-# Create a function to print squares of numbers in sequence.
-new.function <- function(a) {
-   for(i in 1:a) {
-      b <- i^2
-      print(b)
-   }
-}
-
-# Call the function new.function supplying 6 as an argument.
-new.function(6)
-`;
-
-	let cb1 =
-		`<script>
-	export let width = "";
-	export let use = "number";
-</script` + `>`;
+	import Calcbtn from '/src/components/Calcbtn.svelte';
+	import Calc from './blog/calc.svelte';
+	import Sveltekit from './blog/sveltekit.svelte';
 </script>
 
 <svelte:head>
-	<title>Prism Syntax Highlighter Example</title>
-	<meta name="description" content="" />
+	<title>Deep Web Works--About</title>
+	<meta name="description" content="About Wahhab Baldwin" />
 </svelte:head>
 
-<h3>Eddie Florea - viper6277@gmail.com</h3>
+<template lang="pug">
+h1 About Me
+img.flt_r(src="/Wahhab-Baldwin.jpg" alt="Wahhab Baldwin")
+p.  
+	Hi! I'm Wahhab Baldwin. I began working full-time as a programmer in 1966.
+	In my early years, I worked primarily on IBM mainframes, primarily in COBOL 
+	and BAL (assembler),
+	using CICS and Db2. I did a lot of contract programming, and ended up with  
+	significant experience programming for commercial insurance software, 
+	ending by becoming a Senior V.P. at AIG.
+p.	
+	When the IBM PC came out, I taught myself C,  I had articles published in 
+	"C Users' Journal" and "Doctor Dobbs' Journal." I taught a group 
+	of 20 programmers C and led them in developing Workers' Comp software as 
+	AIG's first PC-based application. I was a charter member of the ANSI 
+	committee to standardize C++.
+p. 
+	After AIG I went to work for Microsoft, where I was Senior Dev. Manager for 
+	Middle East Products, and then ran their Internal Tools group. I also worked 
+	on the Office development team.
 
-<p>
-	Generate stylish code blocks with <a href="https://prismjs.com//">PrismJS</a>
-</p>
+	After retiring from Microsoft, I went on to pursue different interests. However, 
+	my wife started a small graphic design business, and as her clients increasingly 
+	wanted websites, I would build the websites that she designed. 
 
-<Prism language="javascript" code={code_sample} header="Sample JS Code" />
-<Prism language="javascript" code={cb1} header="Sample JS Code" />
+	In recent years, in retirement, I have only built websites for friends and family. 
+	However, I have attempted to stay current with the technology, just for my own 
+	interest. I have been delighted by Svelte and Sveltekit, which seem to me 
+	friendlier, easier to learn and more efficient than React or Vue. So I decided 
+	to put together a blog written using SvelteKit (and Pug, as it happens) 
+	and use it to write occasional articles about my learning journey with this 
+	great tool. 
+p. 
+	I hope you'll find it useful, and I welcome your <a href="/contact">feedback</a>.
+</template>

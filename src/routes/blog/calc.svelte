@@ -79,7 +79,7 @@ p.
 	Being lazy by nature, I'm going to build this in the 
 	<a href="https://svelte.dev/repl/hello-world?version=3.46.4">Svelte REPL environment</a>
 	rather than having us set up a Svelte development environment right now. We'll do that
-	in my #[a(href="./sveltekit") post on SvelteKit].
+	in my upcoming #[a(href="./prisma") post on using MySQL in SvelteKit].
 
 p. 
 	So open another browser window, go to #[a(href='https://svelte.dev/') https://svelte.dev/], and click on REPL from the 
