@@ -1,3 +1,7 @@
+<script>
+	export const prerender = true;
+</script>
+
 <svelte:head>
 	<title>Contact Me</title>
 	<meta name="description" content="Get in touch with Wahhab Baldwin. I'd love to hear from you!" />
