@@ -1,7 +1,7 @@
 <script>
 	import Calcbtn from '/src/components/Calcbtn.svelte';
 	import Calc from './blog/calc.svelte';
-	import Sveltekit from './blog/sveltekit.svelte';
+	import Sveltekit from './blog/prisma.svelte';
 </script>
 
 <svelte:head>
