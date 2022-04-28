@@ -5,7 +5,7 @@
 <header>
 	<p class="logo"><a href="/">Deep Web Works</a></p>
 	<nav class="primary-navigation">
-		<ul>
+		<ul class="menu">
 			<li><a class:active={$page.url.pathname === '/'} sveltekit:prefetch href="/">Home</a></li>
 			<li>
 				<a class:active={$page.url.pathname.includes('/blog')} href="/blog">Blog &dtrif;</a>
@@ -41,33 +41,44 @@
 <style>
 	/****** MAIN MENU ********/
 	nav.primary-navigation {
-		margin: 0 auto;
-		display: block;
-		text-align: center;
+		margin: 2em auto 0;
 		margin-top: -1em;
+		border-top: 1px solid #70493580;
+		border-bottom: 1px solid #70493580;
+		max-width: 40em;
 	}
-	nav ul li {
-		list-style: none;
-		margin: 0 auto;
-		border-left: 2px solid var(--brown);
-		display: inline-block;
-		padding: 0 30px;
+	nav ul {
+		margin: 0;
+		padding: 0;
+	}
+	.menu {
+		display: flex;
+		justify-content: space-between;
+	}
+	.menu li {
+		list-style-type: none;
+		display: block;
 		position: relative;
-		text-decoration: none;
-		text-align: center;
 	}
 
-	nav li a,
-	nav li a:visited {
+	.menu li a {
+		display: flex;
+		text-align: center;
+		text-decoration: none;
+		padding: 0.4rem;
+	}
+	.menu li a:visited {
 		color: var(--brown);
 	}
 
-	nav li a:hover,
-	nav li a:active {
+	.menu li a:hover,
+	.menu li a:active {
 		color: var(--hover);
+		-webkit-text-stroke: 1px var(--hover);
+		-webkit-text-stroke: 0.5px var(--hover);
 	}
 
-	nav li:hover {
+	.menu li:hover {
 		cursor: pointer;
 	}
 
@@ -97,19 +108,19 @@
 		padding-top: 20px;
 		padding-right: 2em;
 		box-shadow: 0px 3px 5px -1px #ccc;
+		transition: all 0.3s ease;
 	}
 
 	nav ul li ul li {
 		clear: both;
 		width: 100%;
 		text-align: left;
-		margin-bottom: 20px;
+		margin-bottom: 0.2em;
 		border-style: none;
 	}
 
 	nav ul li ul li a:hover {
 		padding-left: 10px;
-		border-left: 2px solid var(--brown);
 		transition: all 0.3s ease;
 	}
 

@@ -62,12 +62,14 @@
 
 	.flt_l {
 		float: left;
-		margin-right: 2em;
+		margin-right: 3vw;
+		max-width: 45%;
 	}
 	.flt_r {
 		float: right;
-		margin-left: 2em;
+		margin-left: 3vw;
 		padding: 0;
+		max-width: 45%;
 	}
 	.bdr_1 {
 		border: 1px solid #666;
