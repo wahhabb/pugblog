@@ -26,7 +26,10 @@
 		a1j
 	} from './Calccode.js';
 	const codespan = "<span class='çode'";
+	let windowWidth;
 </script>
+
+<svelte:window bind:innerWidth={windowWidth} />
 
 <svelte:head>
 	<title>Svelte Calc Component</title>
@@ -42,7 +45,7 @@
 - var ecd = '</span>';
 h1  Build a Calculator Component in Svelte
 h2  And use it in your current website
-.flt_r <Calculator />
+.flt_r <Calculator calcFontSize={ windowWidth > 600 ? "16px" : "11px" } />
 p. 
 	There's no need to go all or nothing with Svelte. You can build a few components
 	in it and use them in your existing website. Here, we'll build a calculator app 
