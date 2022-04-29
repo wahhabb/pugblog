@@ -19,7 +19,7 @@ export const d1c = `<style>
 		font-weight: 100;
 		text-align: right;
 		align-self: end;
-		padding: 15px 16px 0 0;
+		padding: 0 var(--fontSize) 0 0;
 	}
 </style>`;
 
@@ -40,6 +40,7 @@ export const cb1c = `<style>
 		font-size: 140%;
 		font-weight: 200;
 		border: none;
+		margin: 0;
 	}
 	button:active {
 		background:#aaa;
@@ -105,9 +106,9 @@ export const c1c = `<style>
 		display: inline-grid;
 		justify-content: center;
 		grid-template-columns: repeat(3, 3.875em) 4.06em;
-		grid-template-rows: 4.875em repeat(5, 3.125em);
+		grid-template-rows: 5em repeat(5, 3.125em);
 		margin: 0 auto;
-		gap: 1px;
+		gap: 0.125em;
 		background: #444;
 		font-family: 'Work Sans', sans-serif;
 	}

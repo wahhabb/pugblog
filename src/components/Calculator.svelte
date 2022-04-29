@@ -52,9 +52,9 @@
 		display: inline-grid;
 		justify-content: center;
 		grid-template-columns: repeat(3, 3.875em) 4.06em;
-		grid-template-rows: 4.875em repeat(5, 3.125em);
+		grid-template-rows: 5em repeat(5, 3.125em);
 		margin: 0 auto;
-		gap: 1px;
+		gap: 0.125em;
 		background: #444;
 		font-family: 'Work Sans', sans-serif;
 	}
