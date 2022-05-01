@@ -85,13 +85,21 @@ p
 |  Svelte has a <a href="https://svelte.dev/tutorial/basics">great tutorial</a>, but let me 
 a(href="/blog/calc") walk you through building a calculator component
 |  that you can put anywhere on your site.
-
+p.
+  <a href="/blog/embed">Learn to embed</a> the Calculator component in an HTML webpage.
+p.
+  Learn SvelteKit basics in <a href="/blog/kit1">Getting Started with SvelteKit</a>.
+h2  Coming Soon!
+p.
+  Dive deeper into SvelteKit, learning how to get data from endpoints and how to get your 
+  app hosted on the Web.
 p
 |  SvelteKit's tutorial is not yet ready for prime time. Learn how to 
-a(href="/blog/sveltekit") build a SvelteKit site that uses a MySQL database
-| .
+//- a(href="/blog/sveltekit") build a SvelteKit site that uses a MySQL database
+|  build a SvelteKit site that uses a MySQL database
+|  .
 p. 
   This site is built using SvelteKit on the Jamstack. It is hosted (free of charge!) by Netlify.
-  Learn about <a href="/blog/mysite">how I built it</a>. 
+  Learn about how I built it. 
 
 </template>

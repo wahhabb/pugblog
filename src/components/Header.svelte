@@ -20,6 +20,11 @@
 							>Embed a Svelte Component into Your Existing Website</a
 						>
 					</li>
+					<li>
+						<a class:active={$page.url.pathname === '/blog/kit1'} href="/blog/kit1"
+							>SvelteKit 1&mdash;Getting Started with SvelteKit</a
+						>
+					</li>
 					<!-- <li>
 						<a class:active={$page.url.pathname === '/blog/sveltekit'} href="/blog/sveltekit"
 							>Use SvelteKit with MySQL</a
@@ -66,6 +71,7 @@
 		text-align: center;
 		text-decoration: none;
 		padding: 0.4rem;
+		color: var(--brown);
 	}
 	.menu li a:visited {
 		color: var(--brown);
