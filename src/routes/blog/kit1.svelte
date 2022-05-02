@@ -49,7 +49,7 @@ p.
     For now, we won't use TypeScript (choose None), and you can reply No to the 
     other three questions as well.
 p. 
-    Next, run !{cd}npm install!{ecd} and wait for a moment while needed software is installed.
+    Next, enter !{cd}npm install!{ecd} and wait for a moment while needed software is installed.
     Then you can enter <br>
     !{cd}npm run dev -- --open!{ecd} <br>
     <br>
@@ -74,13 +74,13 @@ p.
     are where you will do all your work: src and static.
 p.
     The static directory holds static assets such as image files or global CSS files that can be
-    embedded in your app. They can be referenced as if at the top level of your app&mdash;
-    for example, an img.jpg file contained there can be called fromsimply as
+    included in your app. They can be referenced as if at the top level of your app&mdash;for 
+    example, an img.jpg file contained there can be referenced simply as
     "\img.jpg".
 p.
-    The src directory is where you will do all your coding. Initially, it contains an app.html 
-    file, the basic html code for your app (but which you likely won't need to modify), and
-    a routes directly.
+    The src directory is where you will do essentially all your coding. Initially, it contains 
+    an app.html file, the basic html code for your app (but which you mostly won't need to 
+    modify), and a routes directly.
 p.
     Currently, the routes directory contains just one file, index.svelte. This is the home page
     of our app. Open it in your editor and you will see the source code of the contents
@@ -95,7 +95,7 @@ p.
     Add a file called about.svelte, and enter the following code:
 <Prism language="html" code={k1h}  />
 p.
-    Save, and then navigate in your browser to localhost:3030/about and you will see your new
+    Save, and then navigate in your browser to localhost:3000/about and you will see your new
     page.
 p.
     Web pages typically have a header, a footer, and some common CSS. We can add that to our
@@ -108,7 +108,7 @@ p.
     simple menu that lets you move between your two pages, and a background color.
 p.
     Looking at the code we added, we see several items of interest. First, there is the 
-    !{cd}<slot />!{ecd} tag. In general, Svelte uses slots as a placeholder for children
+    !{cd}&lt;slot /&gt;!{ecd} tag. In general, Svelte uses slots as a placeholder for children
     of a component. In this case, our pages are treated like children of the __layout.
 p.
     Next, we see that the !{cd}&lt;style>!{ecd} section follows the HTML code. There 
@@ -128,8 +128,9 @@ p.
     But another remarkable feature of styles in Svelte is that unused styles are pruned away,
     and a warning message is given.
     This is great when bringing in a huge stylesheet (like BootStrap) where you may be using
-    just a few of the styles. But in this case, putting in body without the :global wrapper
-    gave me a warning message saying that it was unused, and so it was not applied. This 
+    just a few of the styles. But in this case, putting in !{cd}body!{ecd} without the 
+    !{cd}:global!{ecd} wrapper
+    gave me a warning message saying that body was unused, and so the style was not applied. This 
     trick let me force it to be included in the styles. (In an earlier version 
     of SvelteKit I did not run into this problem, and I'm not sure why it changed).
 p.
@@ -150,9 +151,9 @@ p.
     show that chunks of HTML can be included or excluded based on logic.
     (There is also an !{cd}#else!{ecd} statement).
 p.
-    Note that in the style section, we have set the color for p elements as
-    antiquewhite. Because styles are scoped, this cannot bleed into other areas
-    of our app but applies only to p elements in this component.
+    Note that in the style section, we have set the color for !{cd}p!{ecd} elements as
+    !{cd}antiquewhite!{ecd}. Because styles are scoped, this cannot bleed into other areas
+    of our app but applies only to !{cd}p!{ecd} elements in this component.
 p.
     Now return to __layout.svelte, and we'll import and use this component. Add the 
     following three lines to the beginning of the file:
@@ -168,7 +169,7 @@ p.
 p.
     We've accomplished a lot at this point. Of course, we've just scratched the surface
     of all there is to know. My next post will pick up from here and go a bit deeper,
-    lerning about getting data from endpoints, and considering a couple of ways to
+    learning about getting data from endpoints, and considering a couple of ways to
     move your app live on the web. See you back here soon!
 
 </template>
