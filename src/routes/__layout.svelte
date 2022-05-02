@@ -23,7 +23,11 @@
 		background: linear-gradient(0deg, rgba(238, 230, 220, 0.5), rgba(238, 230, 220, 0.5)),
 			url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 		font-size: 1.05em;
-		line-height: 1.4;
+		line-height: 1.6;
+		margin: 0 auto;
+		max-width: 60em;
+		padding: 1em 0;
+		color: #222;
 	}
 	h1,
 	h2,
@@ -44,12 +48,6 @@
 		font-weight: 500;
 	}
 
-	body {
-		margin: 0 auto;
-		max-width: 60em;
-		padding: 1em 0;
-		color: #222;
-	}
 	a,
 	a:visited {
 		text-decoration: none;

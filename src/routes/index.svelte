@@ -34,13 +34,11 @@
 h1 Svelte/SvelteKit 
 img.flt_r(src="/Wahhab-Baldwin.jpg" alt="Wahhab Baldwin")
 p  
-  |  Hi! I'm Wahhab Baldwin, founder of Deep Web Works. After working for decades as a 
-  |  software developer and manager, including at Microsoft, 
-  |  I mostly retired, but ran this small web development company. 
-  |  Now that I've retired for good, I've decided to use my website to share my adventures with 
+  |  Hi! I'm Wahhab Baldwin, founder of Deep Web Works. 
+  |  Now that I've retired, I've decided to use my website to share my adventures with 
   |  Svelte and SvelteKit. I hope you'll find it useful, and I welcome your 
   a(href="/contact") feedback
-  | .
+  | . 
 
 h2  Who Is This Site For?
 p 
