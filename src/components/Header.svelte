@@ -25,6 +25,11 @@
 							>SvelteKit 1&mdash;Getting Started with SvelteKit</a
 						>
 					</li>
+					<li>
+						<a class:active={$page.url.pathname === '/blog/kit2'} href="/blog/kit2"
+							>SvelteKit 2&mdash;Further Adventures with SvelteKit</a
+						>
+					</li>
 					<!-- <li>
 						<a class:active={$page.url.pathname === '/blog/sveltekit'} href="/blog/sveltekit"
 							>Use SvelteKit with MySQL</a

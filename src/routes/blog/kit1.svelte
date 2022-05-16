@@ -24,16 +24,16 @@ p.
     According to their website, "SvelteKit is a framework for building web applications of 
     all sizes, with a beautiful development experience and flexible filesystem-based routing.
 p.
-    "Unlike single-page apps, SvelteKit doesn't compromise on SEO, progressive enhancement 
+    “Unlike single-page apps, SvelteKit doesn’t compromise on SEO, progressive enhancement 
     or the initial load experience — but unlike traditional server-rendered apps, navigation 
-    is instantaneous for that app-like feel."
+    is instantaneous for that app-like feel.”
 
-h2  Let's Learn by Doing!
+h2  Let’s Learn by Doing!
 p. 
     In order to go forward, you will need at least a basic familiarity with using the command 
     line. You will also need to have npm installed. To check, enter !{cd}npm -v!{ecd} at the 
     command line. If you have it, you will get a version number in response. 
-    If you don't already have it, instructions for downloading and installing it are found 
+    If you don’t already have it, instructions for downloading and installing it are found 
     <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">here</a>.
 p. 
     So create a directory where you will install it:<br>
@@ -42,11 +42,11 @@ p.
     Then run the following command:<br>
     !{cd}npm init svelte@next .!{ecd}<br>
     <br>
-    This will ask you a series of questions. We'll start off with these answers:<br>
-    Where should we creatte your project? (Return).<br>
-    Which Svelte app template? &mdash; (Skeleton project)<br>
+    This will ask you a series of questions. We’ll start off with these answers:<br>
+    Where should we creatte your project? <i>(Return)</i>.<br>
+    Which Svelte app template? &mdash; <i>(Skeleton project)</i><br>
     Then it will ask if you want to use TypeScript, ESlint, Prettier, and Playwright. 
-    For now, we won't use TypeScript (choose None), and you can reply No to the 
+    For now, we won't use TypeScript (choose <i>None</i>), and you can reply No to the 
     other three questions as well.
 p. 
     Next, enter !{cd}npm install!{ecd} and wait for a moment while needed software is installed.
@@ -55,15 +55,15 @@ p.
     <br>
     and your skeleton app will open in 
     a new browser window, at localhost:3000. (A different port can be specificied if you prefer).
-    It doesn't do much yet&mdash;just says "Welcome to SvelteKit."
+    It doesn’t do much yet&mdash;just says "Welcome to SvelteKit."
 img.flt_r(src="/VS_Code_1.35_icon.svg.png" alt="Visual Studio Code logo")
 p. 
     Now, of course, you will want to explore and edit the files that have been created. 
     There are many editors that have settings for Svelte available, and if you have a favorite,
-    feel free to use it. But the most populare with Svelte users is
+    feel free to use it. But the most popular with Svelte users is
     <a href="https://code.visualstudio.com/">VS Code</a>. 
 p.
-    You will want to install the extension "Svelte for VS Code" and perhaps "Svelte Intellisense".
+    You will want to install the extension "Svelte for VS Code" and perhaps "Svelte Intellisense."
     It also helps to go to settings, Text Editor, Suggestions, and disable Accept Suggestion on 
     Commit Character. 
 p.
@@ -79,18 +79,18 @@ p.
     "\img.jpg".
 p.
     The src directory is where you will do essentially all your coding. Initially, it contains 
-    an app.html file, the basic html code for your app (but which you mostly won't need to 
-    modify), and a routes directly.
+    an app.html file, which holds the basic html code for your app (but which you mostly won’t 
+    need to modify), and a routes directly.
 p.
     Currently, the routes directory contains just one file, index.svelte. This is the home page
     of our app. Open it in your editor and you will see the source code of the contents
     displayed in your browser. Try adding a third line of code, say <br>
-    !{cd}&lt;h2>It's going to be great!&lt;/h2>!{ecd}<br>
+    !{cd}&lt;h2>It’s going to be great!&lt;/h2>!{ecd}<br>
     and, with the browser window showing, hit Save in your editor. Bingo! In a flash, your
     browser window updates to show your updated code. This hot updating is one of the 
     features that makes coding in SvelteKit a pleasure.
 p.
-    Let's add an About page. The route "about" can be added in two ways: by adding a file called
+    Let’s add an About page. The route "about" can be added in two ways: by adding a file called
     about.svelte, or by creating an about subdirectory and adding an index.svelte file there.
     Add a file called about.svelte, and enter the following code:
 <Prism language="html" code={k1h}  />
@@ -100,7 +100,7 @@ p.
 p.
     Web pages typically have a header, a footer, and some common CSS. We can add that to our
     pages by creating a new file in our routes directory with the special name
-     __layout.svelte. (Note the double underline). Create that, and add the following code:
+     __layout.svelte. (Note the double underscore). Create that, and add the following code:
 <Prism language="html" code={k2h}  />
 <Prism language="html" code={k2s}  />
 p.
@@ -109,17 +109,17 @@ p.
 p.
     Looking at the code we added, we see several items of interest. First, there is the 
     !{cd}&lt;slot /&gt;!{ecd} tag. In general, Svelte uses slots as a placeholder for children
-    of a component. In this case, our pages are treated like children of the __layout.
+    of a component. In this case, our pages are treated like children of the __layout file.
 p.
     Next, we see that the !{cd}&lt;style>!{ecd} section follows the HTML code. There 
-    are three sections in a .svelte file&mdash;a script section, an HTML section, and
+    are three basic sections in a .svelte file&mdash;a script section, an HTML section, and
     a style section. These can be placed in any order, but the tutorials use the
     order just listed.
 p.
     Third, the first line in the style section is <br>
     !{cd}:global(body) &lbrace;!{ecd}<br>
     Styles in a .svelte file are <i>scoped</i> to that file. This eliminates the many problems
-    found in CSS files that can run to thousands of lines, that can lead to hardo-to-find bugs
+    found in CSS files that can run to thousands of lines, that can lead to hard-to-find bugs
     in styling. If you have a lot of global styles, they can be put in a stylesheet linked
     in the head of the HTML file (either in app.html or in your __layout file in a 
     !{cd}&lt;svelte:head&gt;!{ecd} section.
@@ -132,30 +132,32 @@ p.
     !{cd}:global!{ecd} wrapper
     gave me a warning message saying that body was unused, and so the style was not applied. This 
     trick let me force it to be included in the styles. (In an earlier version 
-    of SvelteKit I did not run into this problem, and I'm not sure why it changed).
+    of SvelteKit I did not run into this problem, and I’m not sure why it changed).
 p.
     SvelteKit can use your favorite preprocessors with no problem&mdash;TypeScript, CoffeScript,
     Markdown, Pug, Less, Sass, PostCSS, Stylus, and more. 
 p.
-    Svelte is used to create reusable components. Let's add a simple Footer component 
-    to our nascent app. Create a directory under src called components. There's nothing
+    Svelte is used to create reusable components. Let’s add a simple Footer component 
+    to our nascent app. Create a directory under src called components. There’s nothing
     special about that name; you could call it whatever you like. Create a file in
     that directory called Footer.svelte, and add the following code:
 <Prism language="html" code={k3h}  />
 <Prism language="html" code={k3s}  />
 p.
-    The !{cd}export!{ecd} statement is Svelte's way of identifying that a variable is a 
+    The !{cd}export!{ecd} statement is Svelte’s way of identifying that a variable is a 
     property, or prop, that is to be passed to the component. On the line with 
     the word Copyright, we see that we can include arbitrary JavaScript in our
-    HTML, and it will be evaluated when the page is rendered. The next lines 
+    HTML within curly braces, and it will be evaluated when the page is rendered. 
+    The next lines 
     show that chunks of HTML can be included or excluded based on logic.
     (There is also an !{cd}#else!{ecd} statement).
 p.
-    Note that in the style section, we have set the color for !{cd}p!{ecd} elements as
-    !{cd}antiquewhite!{ecd}. Because styles are scoped, this cannot bleed into other areas
+    Note that in the style section, we have set the color for !{cd}p!{ecd} elements 
+    in the Footer as !{cd}antiquewhite!{ecd}. Because styles are scoped, this 
+    cannot bleed into other areas
     of our app but applies only to !{cd}p!{ecd} elements in this component.
 p.
-    Now return to __layout.svelte, and we'll import and use this component. Add the 
+    Now return to __layout.svelte, and we’ll import and use this component. Add the 
     following three lines to the beginning of the file:
 <Prism language="html" code={k4j}  />
 p.
@@ -167,7 +169,7 @@ p.
     invocation with just a plain !{cd}&lt;Footer /&gt;!{ecd} statement, you will see that
     the word "by" goes away on the footer because of the !{cd}#if!{ecd} block.
 p.
-    We've accomplished a lot at this point. Of course, we've just scratched the surface
+    We’ve accomplished a lot at this point. Of course, we’ve just scratched the surface
     of all there is to know. My next post will pick up from here and go a bit deeper,
     learning about getting data from endpoints, and considering a couple of ways to
     move your app live on the web. See you back here soon!
