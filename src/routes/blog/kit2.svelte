@@ -21,7 +21,8 @@ p.
     At this point, we have a simple, two-page website. Let’s take it just a bit further.
 p.
     First of all, we would like each of our pages to have an appropriate title and a description
-    for SEO. If you look at the file app.html, you will see there is an entry, %svelte.head% in
+    for SEO. If you look at the file app.html, you will see there is an entry, 
+    !{cd}%svelte.head%!{ecd} in
     the head section. We can insert code there by adding these lines to the top of 
     index.svelte, our home page:
 <Prism language="html" code={k1h}  />
