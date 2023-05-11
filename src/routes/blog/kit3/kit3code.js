@@ -86,7 +86,7 @@ export async function POST({ request }) {
 export const k5j = `let res;
 let statedata = '';
 async function xget(st) {
-      const response = await fetch("/api/add", {
+      const response = await fetch("/api/getstate", {
           method: 'POST',
           body: JSON.stringify({st}),
           headers: {

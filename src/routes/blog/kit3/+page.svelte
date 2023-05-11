@@ -63,11 +63,11 @@ p.
 <Prism language="css" code={k3s}  />
 
 p.
-    At this point, you should see a button for each state with the state name on it. Clicking the buttons doesnvt do anything yet. If you like, you can improve the overall look of the page by adding some appropriate CSS. I went into app.html and added a style statement to put 1em of padding on the body. You might want to add a bit of color or whatever. But now we need to make something happen when we click on those buttons!
+    At this point, you should see a button for each state with the state name on it. Clicking the buttons doesn’t do anything yet. If you like, you can improve the overall look of the page by adding some appropriate CSS. I went into app.html and added a style statement to put 1em of padding on the body. You might want to add a bit of color or whatever. But now we need to make something happen when we click on those buttons!
 
 h2  Looking up State Data
 p.
-    In order to retrieve data for a state, we need to issue a POST request, as if we had submitted a form (and of course, we could have created a form). Let’s create the function that processes that POST. Since it needs to run on the server, we will call it +server.js, at the same level as our +page.svelte. Enter the following code into it:
+    In order to retrieve data for a state, we need to issue a POST request, as if we had submitted a form (and of course, we could have created a form). Let’s create the function that processes that POST. Since it needs to run on the server, we will call it /src/routes/api/getserver/+server.js. Enter the following code into it:
 
 <Prism language="javascript" code={k4j}  />
 p.
