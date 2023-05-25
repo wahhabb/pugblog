@@ -48,21 +48,9 @@ footer {
 }
 </style>`;
 
-export const k4j = `import { json } from "@sveltejs/kit";
-import { mysqlconnFn } from "$lib/db/mysql";
-
-export async function POST({ request }) {
-  const { st } = await request.json();
-  let mysqlconn = await mysqlconnFn();
-  let results = await mysqlconn
-    .query("SELECT * FROM states where state = '" + st + "'")
-    .then(function ([rows, fields]) {
-      //     console.log(rows);
-      return rows;
-    });
-
-  return json(results);
-}
+export const k4j = `<script>
+    import Footer from '../components/Footer.svelte';
+</script>
 `;
 
 export const k4h = `<Footer author="Wahhab Baldwin" />`;

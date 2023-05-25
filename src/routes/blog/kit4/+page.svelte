@@ -1,7 +1,7 @@
 <script>
 	import { HtmlTag } from  'svelte/internal';
     import Prism from '$lib/components/PrismJS.svelte';
-	import { k1j, k2j, k3j, k3h, k3s, k4j, k5j, k5h } from './kit3code.js';
+	import { k1j, k2j, k3j, k3h, k3s, k4j, k5j, k5h } from './kit4code.js';
 </script>
 
 <svelte:head>

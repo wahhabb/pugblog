@@ -24,7 +24,7 @@ p.
     for SEO. If you look at the file app.html, you will see there is an entry, 
     !{cd}%svelte.head%!{ecd} in
     the head section. We can insert code there by adding these lines to the top of 
-    index.svelte, our home page:
+    +page.svelte, our home page:
 <Prism language="html" code={k1h}  />
 p.
     If we had a !{cd}&lt;script>!{ecd} Section on our page, we might place these lines after 
