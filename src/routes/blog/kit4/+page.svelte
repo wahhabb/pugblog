@@ -1,93 +1,138 @@
 <script>
 	import { HtmlTag } from  'svelte/internal';
     import Prism from '$lib/components/PrismJS.svelte';
-	import { k1j, k2j, k3j, k3h, k3s, k4j, k5j, k5h } from './kit4code.js';
+	import { k1s, k2h, k3j, k3h, k3s, k4j, k5j, k5h } from './kit4code.js';
 </script>
 
 <svelte:head>
-	<title>SvelteKit 3&mdash;Using MySQL</title>
-	<meta name="description" content="Learn how to integrate MySQL into SvelteKit for a full-stack web app." />
+	<title>Moving SvelteKit Sites to Production</title>
+	<meta name="description" content="You’ve created a website in SvelteKit -- now how do you share it with the world?" />
 </svelte:head>
 
 <template lang="pug">
 - var cd = '<span class="code">';
 - var ecd = '</span>';
-h1  SvelteKit 3&mdash;Using MySQL with SvelteKit
-img.flt_r(src="/images/MySQL-logo.png"  alt="MySQL logo") 
+h1  Moving SvelteKit Sites to Production 
+img.flt_r(src="/svelte-kit-machine.jpg"  alt="SvelteKit Machine") 
 p. 
-    In order to create a full-stack application, it is typically necessary to connect with a database of some kind. SvelteKit offers integration with popular databases, whether noSQL (like MongoDB or Redis) or SQL (like MySQL or PostgreSQL). SQL databases can be accessed directly, or through wrappers like Prisma.
-p.
-    Whatever the database, the way of using it with SvelteKit is largely the same. For this example, we will use MySQL in its native format, but you should easily be able to adapt this to your preferred database.
-p.
-    We will want the database code to run on the server only, while other code will run on the client. Fortunately, Svelteit makes it easy to determine where our code will run. A file named +page.js will run on the client, while a file named +page.server.js will run on the server!
-p.
-    You can see the simple app we are developing <a href="https://kit-mysql.vercel.app/">here</a>. It comes up with a button for each state, and when you click on a state, displays information about that state below all the buttons.
-p.
-    How do we develop an app that uses MySQL? I do it using a package called MAMP, which stands for macOS (the operating system); Apache (the web server); MySQL or MariaDB (the database management system); and PHP, Perl, or Python (programming languages used for web development). Of course, we will be using SvelteKit rather than PHP.
-p.
-    I won’t go into all the details of using MAMP (or WAMP if you are on a Windows machine). Both Intel and Mac M1/M2 versions can be downloaded <a href="https://www.mamp.info/en/downloads/">here</a>. The Windows versions (both 32 bit and 64 bit) can be downloaded <a href="https://www.wampserver.com/en/download-wampserver-64bits/">here</a>. Once they are installed, on Mac, open manager-osx.app, click on "Manage Servers," and fire up the Apache Web Server and MySQL Database. Once the buttons turn green, bring up a web browser and go to localhost/dashboard/. From there, you can click on phpMyAdmin to create and modify MySQL databases.
-p.
-    Of course, you don’t need MAMP or WAMP. You can also start directly by having your database hosted on a server to which you have access. Read about local development for whatever database you may be using. But it is very convenient to have a fully self-contained environment for your development work.
-h2  Creating Our Database
-p.
-    Since my purpose here is not to teach MySQL, but rather to show how to integrate it with SvelteKit, my example will be very simple. I have hosted a database that you can use for this exercise. But if you would like to build it yourself for use in the WAMP/MAMP/XAMP environment, I have exported my local version to a file statedatabase.sql which you can find at the top level of <a href="https://github.com/wahhabb/kit-mysql">my Github repo</a> for this blog entry.
-h2  Connecting with the Database
-p.
-    Before using a database, it is necessary to open a connection with it, passing credentials. For this sample, I have hard-coded the credentials into a file. For any real project, the credentials shoud be retrieved from environment variables, and not be stored on Git or in other places where they might be stolen.
-p.
-    In order to use MySQL in SvelteKit, we must install it. From your command prompt, enter !{cd}npm install mysql2!{ecd} and wait for it to be installed.
-p.
-    Now we will create a file to handle database connections. We’ll call it /src/lib/db/mysql.js. Add the following code to it:
-<Prism language="javascript" code={k1j}  />
-p.
-    As you can see, this function creates two alternate ways to connect to the database. The first, which is commented out, has connections for developing using the database locally. The second, currently uncommented, connects with the database I have hosted and given you access to with a read-only user.
-p.
-    In a production site, you would create a pool of database connections, using the functions createPool and getConnection rather than createConnection.
+   We’ve explored creating websites in SvelteKit, and discovered that it provides a great development environment. But for that website to be useful, it needs to be exposed to the world. This post will look at several ways of accomplishing that, some even free of charge!
 
-h2  Getting Data on Page Load
+h2  Building for Production.
 p.
-    When we load our page, we want to get the list of state names. For simplicity, we will display these as a bunch of buttons, rather than as a dropdown or other way of selecting. Our goal is to let the user click on a button and get information about that state.
+    Until now, we have been running a test version of our SvelteKit sites. This is quick and convenient, and provides useful feedback when something goes wrong, but a site built for production needs to be built differently. The code is optimized, and prerendering is done if needed.
+p.    
+   Typically, you do a production build with the command 
+   <br>!{cd}npm run build!{ecd}<br>  
+   However, before doing this, you need to specify details about the kind of build that should be created in the svelte.config.js file. This is done by specifying an <i>adapter</i> for the target environment. 
+p.    
+    There are many different ways in which to host a SvelteKit site. In fact, if most of your experience is (for example) hosting on shared servers for WordPress, you may be startled by the range of options.
 p.
-    In order to make the list of state names available to our page, we will create a new file, +page.server.js. Add the following code to this file:
+    Official adapters are described in detail in the <a href="https://kit.svelte.dev/docs/adapters">documentation</a>, but the current list consists of the following:
 
-<Prism language="javascript" code={k2j}  />
+ul   
+    li  @sveltejs/adapter-cloudflare for Cloudflare Pages
+    li  @sveltejs/adapter-cloudflare-workers for Cloudflare Workers
+    li  @sveltejs/adapter-netlify for Netlify
+    li  @sveltejs/adapter-node for Node servers
+    li  @sveltejs/adapter-static for static site generation (SSG)
+    li  @sveltejs/adapter-vercel for Vercel
+p.
+    Additional community-provided adapters exist for other platforms.
+p.
+    This is a lot of choices! Rather than discuss them all, let’s dive in. Rich Harris, the original creator of Svelte and SvelteKit, has gone to work for Vercel, so not surprisingly, that is a good platform for hosting SvelteKit. We’ll start there.
 
+h2  Hosting on Vercel
 p.
-    As you can see by examining the code, this has a load function which gets the array of states from the database and returns it for use by +page.svelte. So let’s rewrite that file to receive and make use of it.
+    According to Wikipedia, Vercel, Inc. “is an American cloud platform as a service company. The company maintains the Next.js web development framework.
+p.
+    “Vercel’s architecture is built around Jamstack, and deployments are handled through Git repositories.”
+p.
+    Part of what is wonderful about Vercel is that it essentially eliminates the ops portion of web development. You maintain your source code on GitHub, GitLab, or Bitbucket. Every time you push new code, Vercel automatically generates a new build of your site and pushes it to a global edge network. Use for personal or non-commercial projects is free of charge!
+p.
+    While there is a Vercel adapter for SvelteKit, we are not using any Vercel-specific features, so the adapter-auto that is specified by default will work fine.
 
-h2  Displaying the State Names
+h2  Sign Up for GitHub
 p.
-    The current page, /src/routes/+page.svelte, doesn’t have much on it. Let’s begin by replacing it with the following code:
-<Prism language="javascript" code={k3j}  />
-<Prism language="html" code={k3h}  />
-<Prism language="css" code={k3s}  />
+    If you have an account with GitHub, GitLab, or Bitbucket, you can skip this step. If not, go to GitHub.com and sign up for an account. 
+p.
+    Once you have created an account, you will be invited to create your first project. On my screen, there is a green button saying, “Create repository”.
+p.
+    Pressing this brings up a page saying “Create a new repository.” Create a name for your repository. We are going to use this as a repository for the app you built in the previous post, that lists the states and gets data about them using MySQL, so choose a name like state_data. Add a description, and leave it public or make it private as you choose. Do not add a README file or add .gitignore, as we will be getting these from your local machine. Then click the green Create Repository button.
+p.
+    This will take you to a screen with instructions on filling this repository from your directory. Bring up a command line, navigate to where your files are located, and look at the directions under “..or create a new repository on the command line”. We’ll just change these a bit:
+pre.
+    git init
+    git add -A
+    git commit -am"First commit"
+    git branch -M main
+    git add origin https://github.com/xxxx/xxx.git
+    git push -u origin main
+p.
+    The first line creates a local repository in the directory where you have your code. The second line adds all your files to it (except the ones that SvelteKit has specified in the .gitignore file they provide). The third line commits these files and gives a comment to that commit. For the fifth line, copy the code given on the GitHub page, which replaces the xxx's with your username and repository name. The last line pushes copies of your files up to your repository.
+p.
+    Congratulations! You have a GitHub repository. Now we are ready to take the next step, which is to sign up for Vercel.
 
+h2  Sign Up for Vercel
 p.
-    At this point, you should see a button for each state with the state name on it. Clicking the buttons doesn’t do anything yet. If you like, you can improve the overall look of the page by adding some appropriate CSS. I went into app.html and added a style statement to put 1em of padding on the body. You might want to add a bit of color or whatever. But now we need to make something happen when we click on those buttons!
+    Go to vercel.com, and click on Sign Up at the right end of the menu. the page, “Create Your Vercel Account" will come up. Choose Hobby, and enter your name. 
+p.
+    A page will now ask you, “Let’s connect your Git provider”. Click on the appropriate choice (Continue with GitHub if you’ve been following along). Click on “Authorize Vercel," and under “Import Git Repository," click on “Select a Git Namespace." Now choose “Add GitHub Account." You will be asked whether to allow Vercel access to all your GitHub repositories, or only those you specify. Make this selection, and then enter your GitHub password when requested. Then, on the line with your desired GitHub repository, click “Import”. 
+p.
+    This will take you to a page titled “You’re almost done." Under Configure Project, accept the Project Name or change if you with. Under Framework Preset, select SvelteKit. The Build and Output Settings should work without overrides. As mentioned earlier, credentials, such as login credentials to your database, would normally be provided through Environment Variables. For more information on using environment variables in SvelteKit, see <a href="https://kit.svelte.dev/docs/modules">SvelteKit’s documentation</a> or (on Vercel) <a href="https://vercel.com/docs/frameworks/sveltekit">Vercel’s documentation</a> on using SvelteKit on Vercel, which includes a number of useful tips.
+p.
+    That was easy! Now we’re ready for some payoff. Click the large, black Deploy button. Vercel will begin building the application, and in a matter of seconds, will build it, deploy it, and assign some domain names to it. If you go to Project Settings on the top menu, then choose Domains from the side menu, you can edit one of the domain names (actually, subdomain names of vercel.app) for example, mine will show at <a href="https://kit-mysql.vercel.app/">kit-mysql.vercel.app/</a>. Vercel also assigns a certificate so your app uses https and secure sockets.
+p.
+    If you want to use your own domain, Vercel tells you how to do that in its <a href="https://vercel.com/docs/concepts/projects/domains">documentation</a>.
+p.
+    You had to do some setup, but now you have a SvelteKit site running live on the Internet, where anyone can access it! And from this point forward, life becomes very easy.
 
-h2  Looking up State Data
+h2  Making Changes
 p.
-    In order to retrieve data for a state, we need to issue a POST request, as if we had submitted a form (and of course, we could have created a form). Let’s create the function that processes that POST. Since it needs to run on the server, we will call it /src/routes/api/getserver/+server.js. Enter the following code into it:
+    Let’s make a change to our website. In +page.svelte, add the following style:
 
-<Prism language="javascript" code={k4j}  />
+<Prism language="css" code={k1s}  />
 p.
-    The POST data will be converted to JSON to be transmitted, and this function converts it back and extracts the state name. After ensuring it has a database connection, it selects all the data for that state, and returns it as an array (with just one entry) of objects holding the state data. 
-p.
-    Now let’s modify +page.svelte to issue the appropriate POST request on a button click, and to display the data. Add the following to the script section at the beginning of the file:
-<Prism language="javascript" code={k5j}  />
+    Now, just to change another file, let’s add a +layout.svelte file with the following code:
 
+<Prism language="html" code={k2h}  />
 p.
-    This code uses a fetch to invoke the POST method we just created, converts the transmitted data back to an object from JSON, and pulls the content out of the array. This fetch function built into SvelteKit has a few additional features to the native fetch web API, which you can read about <a href="https://kit.svelte.dev/docs/load#making-fetch-requests">in the docs.</a> In the present case, it avoids the overhead of an HTTP call and goes directly to the handler function.
+    Save the files, and go back to your command line. Enter !{cd}git status!{ecd} and it should show one modified and one added file. Enter the following:
+pre.
+    git add -A
+    git commit -am"Add layout"
+    git push
 p.
-    All that’s left for us to do is to wire up a call to our new function on a button click, and to display the results. Replace the three lines of the #each statement with the following code. Note that in order to pass a parameter to the click function, we use an inline function. Alternately, we could have extracted the button title from the event in our event handler.
-<Prism language="html" code={k5h}  />
+    Let a few seconds go by, and then visit your webpage through the link Vercel gave you. Mirabile dictu! Your website has been automatically updated by Vercel just because you updated the source code on GitHub.
+h2  Using Netlify
 p.
-    SvelteKit automatically updates the last lines based on the value of statedata. Initially, it is an empty string, so nothing shows. Each time you click on a button, its value will be updated, and you will see the four sentences with the state’s capital, abbreviation, region, and state bird.
-
-h2  Ta-Da!
+    Netlify works very similarly to Vercel when it comes to hosting your SvelteKit site or app. This blog is hosted by Netlify. Netlify also has a generous free tier.
 p.
-    Congratulations! You have successfully built a simple web app that accesses MySQL both on page load and in response to a user action.
+    Both Vercel and Netlify provide a variety of useful functions that are specific to their framework that can be invoked from your SvelteKit code. For example, Netlify supports form submissions, background functions, edge functions (beta), large media using Git Large File Storage, etc. with pricing above certain usage. However, exploring these features (and Vercel’s specific features) is beyond the scope of this article.
 p.
-    In the next blog entry, we will use this simple webpage to learn how to make a SvelteKit website go live!
-
+    Both Vercel and Netlify fall in the category of Jamstack hosts, standing for Javascript, APIs and HTML Markup. As a result, they do not host databases. To find a host that will include both MySQL hosting and host our SvelteKit site, we should use Node.
+p.
+    Cloudflare Pages is another Jamstack host that appears similar to Vercel and Netlify, but I have not used it.
+h2  Deploying on Node
+p.
+    To produce a Node version of our site, we start by installing the appropriate adapter:
+pre npm i -D @sveltejs/adapter-node
+p.
+    Next, we change the first line of svelte.config.js to
+pre import adapter from '@sveltejs/adapter-node';
+p.   
+    Following that, run !{cd}npm run build!{ecd} to create the production server in the output directory specified in the adapter options, defaulting to !{cd}build!{ecd}. From this point, follow the directions listed in the SvelteKit <a href="https://kit.svelte.dev/docs/adapter-node">documentation.</a>
+p.
+    For a shared server host with cPanel, much as you might use for WordPress, you can use A2 hosting or Bluehost. Be sure to read their documentation on hosting Node applications. I haave used A2 for a Node website and been pleased with it. Their tech support was helpful to me as this was the first time I had deployed with Node. 
+p.
+    Of course, when you make changes to your site, it will be necessary for you to rebuild it and upload the new build to your host yourself (or find an automated tool that will do that for you).
+p.
+    Another low-cost provider for small projects is EvenNode. However, they support the MongoDB database rather than MySQL. But if you choose that, they have plans from 4.50€ monthly, with a 30-day free trial. Heroku supports Node and offers Postgres SQL, which is very similar to MySQL, with modest starting costs. For large-scale production systems, Amazon Web Services and its competitors Google Cloud Platform and Microsoft Azure are standard corporate choices.
+p.
+    Well, we've done it! Whether you’re a hobbyist, doing a small professional project, or wanting to build for a major corporation with millions of users, these are ways to take a SvelteKit site to production.
 </template>
+<style>
+    pre {
+        font-weight: 700;
+        font-size: 1rem;
+    }
+</style>

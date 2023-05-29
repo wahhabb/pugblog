@@ -35,11 +35,11 @@
 							>Use SvelteKit with MySQL</a
 						>
 					</li>
-					<!-- <li>
-						<a class:active={$page.url.pathname === '/blog/mysit'} href="/blog/mysite"
-							>How this Site was Built</a
+					<li>
+						<a class:active={$page.url.pathname === '/blog/kit4'} href="/blog/kit4"
+							>Moving SvelteKit Sites to Production</a
 						>
-					</li> -->
+					</li>
 				</ul>
 			</li>
 			<li><a class:active={$page.url.pathname === '/about'} href="about">About</a></li>

@@ -1,51 +1,24 @@
-export const k1j = `import mysql from "mysql2/promise";
+export const k1s = `:global(body) {
+   background-color: blanchedalmond;
+}`;
 
-let mysqlconn = null;
+export const k2h = `<header>
+<h1>
+    State Data from MySQL
+</h1>
+</header>
+<slot />
 
-export function mysqlconnFn() {
-  if (!mysqlconn) {
-    // used for development with MAMP
-    // mysqlconn = mysql.createConnection({
-    //   host: "127.0.0.1",
-    //   user: "root",
-    //   password: "",
-    //   database: "statedata",
-    // });
-    mysqlconn = mysql.createConnection({
-      host: "162.241.218.208",
-      user: "algyvwmy_state_reader",
-      password: "SveltekitMySQL",
-      database: "algyvwmy_states",
-    });
-  }
-
-  return mysqlconn;
+<style>
+header {
+    background-color: aqua;
+    padding: 1.5em 0;
 }
-`;
-
-export const k2j = `import { mysqlconnFn } from "$lib/db/mysql";
-
-export async function load() {
-  let mysqlconn = await mysqlconnFn();
-  try {
-    let results = await mysqlconn
-      .query("SELECT state FROM states;")
-      .then(function ([rows, fields]) {
-        //        console.log(rows);
-        return rows;
-      });
-
-    return {
-      data: results,
-    };
-  } catch (error) {
-    console.error("Got an error!!!");
-    console.log(error);
-    return error;
-  }
+header h1 {
+    text-align: center;
 }
 
-`;
+</style>`;
 
 export const k3j = `<script>
 export let data;
