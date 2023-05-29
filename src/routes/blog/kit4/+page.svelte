@@ -111,7 +111,8 @@ p.
 p.
     Both Vercel and Netlify fall in the category of Jamstack hosts, standing for Javascript, APIs and HTML Markup. As a result, they do not host databases. To find a host that will include both MySQL hosting and host our SvelteKit site, we should use Node.
 p.
-    Cloudflare Pages is another Jamstack host that appears similar to Vercel and Netlify, but I have not used it.
+    Cloudflare Pages is another Jamstack host that appears similar to Vercel and Netlify, but although I was able to deploy the standard SvelteKit demo site with no trouble, I did not succeed in deploying the MySQL site that we are working with. It appears to be necessary to install Cloudflare Workers to do this connection, and I have not yet been motivated to learn how to do this.
+    
 h2  Deploying on Node
 p.
     To produce a Node version of our site, we start by installing the appropriate adapter:
