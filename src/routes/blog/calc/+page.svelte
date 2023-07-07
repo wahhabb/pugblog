@@ -47,19 +47,18 @@ h1  Build a Calculator Component in Svelte
 h2  And use it in your current website
 .flt_r <Calculator calcFontSize={ windowWidth > 600 ? "16px" : "11px" } />
 p. 
-	There's no need to go all or nothing with Svelte. You can build a few components
-	in it and use them in your existing website. Here, we'll build a calculator app 
-	in Svelte and deploy it in a basic HTML website. Here it is on the right: give
-	it a try!
+	There’s no need to go all or nothing with Svelte. You can build a few components
+	in it and use them in your existing website. Here, we’ll build a calculator app 
+	in Svelte and deploy it in a basic HTML website. Here it is on the right: it’s live! Give it a try!
 
 p. 
 	This fairly full-featured calculator component is
 	based on the iPhone calculator app, but with the rectangular buttons 
 	of the Mac calculator app. 
 	While this project is more complex than is needed just to learn Svelte, I find
-	it of interest in itself, and it's more real-world than the trivial examples
+	it of interest in itself, and it’s more real-world than the trivial examples
 	often used. I am assuming you are familiar with HTML, CSS, and JavaScript.
-	This is not a total beginner's introduction to Svelte&mdash;for that, go 
+	This is not a total beginner’s introduction to Svelte&mdash;for that, go 
 	to the great #[a(href="https://svelte.dev/tutorial/basics") tutorial by Svelte].
 	If you are more interested in embedding Svelte components into
 	existing apps, you can skim over most of this calculator post, or just visit 
@@ -67,34 +66,34 @@ p.
 	and download the finished calculator code as explained there.
 
 p. 
-	Let's start with a little planning. We're building a Calculator component.
+	Let’s start with a little planning. We’re building a Calculator component.
 	The calculator has a bunch of buttons (19,
-	to be precise) and a display. So let's create components for the buttons,
-	which we'll call !{cd}Calcbtn!{ecd}, and for the display, which we'll call !{cd}Display!{ecd} 
-	(in real life, we'd probably call it !{cd}CalcDisplay!{ecd}). Note that Svelte components
-	are required to start with a capital letter. To start off with, we'll just 
-	write enough code to create a static display, and then we'll add functionality to it.
+	to be precise) and a display. So let’s create components for the buttons,
+	which we’ll call !{cd}Calcbtn!{ecd}, and for the display, which we’ll call !{cd}Display!{ecd} 
+	(in real life, we’d probably call it !{cd}CalcDisplay!{ecd}). Note that Svelte components
+	are required to start with a capital letter. To start off with, we’ll just 
+	write enough code to create a static display, and then we’ll add functionality to it.
 
 p.
-	There are four columns of buttons, so we'll use CSS grid to do our layout. Some 
-	of the buttons have different colored backgrounds, so we'll create classes for them.
+	There are four columns of buttons, so we’ll use CSS grid to do our layout. Some 
+	of the buttons have different colored backgrounds, so we’ll create classes for them.
 p. 
-	Being lazy by nature, I'm going to build this in the 
+	Being lazy by nature, I’m going to build this in the 
 	<a href="https://svelte.dev/repl/hello-world?version=3.46.4">Svelte REPL environment</a>
-	rather than having us set up a Svelte development environment right now. We'll do that
+	rather than having us set up a Svelte development environment right now. We’ll do that
 	in my upcoming #[a(href="./prisma") post on using MySQL in SvelteKit].
 
 p. 
 	So open another browser window, go to #[a(href='https://svelte.dev/') https://svelte.dev/], and click on REPL from the 
 	main menu. 
 	This brings up a tab named App.svelte on the left, and a Result tab on the right. 
-	In order to save your work, click on the right where it says "Log in to save" and 
+	In order to save your work, click on the right where it says “Log in to save and 
 	log in.
 p. 
 	Eventually, we will change App.svelte to display a !{cd}Calculator!{ecd} component, but 
-	in order to avoid error messages, we'll leave it alone for now.
-	Let's begin by creating our subcomponents. Click on the + near the upper left next 
-	to App.Svelte, and rename the new tab to Calculator.svelte. We'll just leave it
+	in order to avoid error messages, we’ll leave it alone for now.
+	Let’s begin by creating our subcomponents. Click on the + near the upper left next 
+	to App.Svelte, and rename the new tab to Calculator.svelte. We’ll just l”eave it
 	blank for the moment. Click the + again, and rename this new tab to	
 	Display.svelte. Enter the following code:
 
@@ -137,9 +136,9 @@ p.
 	The content between the opening and closing tags (in this case, the percent sign) will 
 	replace the !{cd}&lt;slot>&lt/slot>!{ecd} portion of the HTML code. 
 
-h2 So Let's See Some Results!
+h2 So Let’s See Some Results!
 p. 
-	Now that we've defined our subcomponents, we're ready to define our Calculator component.
+	Now that we’ve defined our subcomponents, we’re ready to define our Calculator component.
 	Click back on the App.svelte tab, and enter the following code:
 
 <Prism language="javascript" code={c1j}  />
@@ -152,8 +151,8 @@ p  Almost done! Go back to the App.svelte tab, and replace all of its code with 
 
 p. 
 	Hooray! If you have followed so far, you should see the calculator in the result window 
-	on the right. Clicking on the buttons doesn't yet do anything other than change their
-	background color, but we'll take care of that soon enough.
+	on the right. Clicking on the buttons doesn’t yet do anything other than change their
+	background color, but we’ll take care of that soon enough.
 
 p.	
 	In the script section of the Calculator component, we import its two subcomponents. 
@@ -171,19 +170,19 @@ p.
 	independently each time it is invoked.
 
 p. 
-	Now that we can see our calculator, let's start getting it to work! Our first step is 
+	Now that we can see our calculator, let’s start getting it to work! Our first step is 
 	to set up communication between the buttons and the display. Rather than requiring all 
 	props to be sent up and down the chain to the top-level component, Svelte makes 
 	inter-component communication easy 
 	by using a #[i store]. A store is just an object with a !{cd}subscribe!{ecd} method that lets interested 
 	components be notified whenever the store value changes. When we click buttons, the value 
-	on the display should change. Let's set this up. Click the + at the right of the list of 
+	on the display should change. Let’s set this up. Click the + at the right of the list of 
 	tabs, and rename the new tab to stores.js. Add the following two lines of code to it:
 
 <Prism language="javascript" code={s1j}  />
 p. 
 	This variable, !{cd}display!{ecd}, will hold a numeric value to be shown on the display. Now the 
-	!{cd}Display!{ecd} component needs to update the display's contents whenever they change. We'll 
+	!{cd}Display!{ecd} component needs to update the display’s contents whenever they change. We’ll 
 	start with a simple implementation of !{cd}toDispString!{ecd}. Replace the contents of the script 
 	tags with the following:
 
@@ -200,10 +199,10 @@ p.
 	just have to update the store when we click on the calculator buttons. 
 
 p. 
-	Let's start by handling entering a number. A number will consist of a 
+	Let’s start by handling entering a number. A number will consist of a 
 	series of digits, optionally followed by a decimal point and another series 
 	of digits. If a second decimal point is entered during this process, we 
-	will ignore it. We'll use a variable, !{cd}inDecimal!{ecd}, 
+	will ignore it. We’ll use a variable, !{cd}inDecimal!{ecd}, 
 	to show whether we are entering digits beyond a decimal point and how 
 	many digits past it we are. To support this count, we will create a couple 
 	of module-level variables. Every time a button is pressed, any 
@@ -230,10 +229,10 @@ p.
 	like 123.45, and see them appear. Progress!
 
 	However, we can also see a bug. Start typing in digits, and by the time 
-	you get to ten digits, the number runs off the display! Let's add some 
-	code to Display.svelte to deal with this. If numbers get long, we'll shrink 
-	their size. We'll round off digits to the right of the decimal place that 
-	won't fit, and we'll use scientific notation for numbers too large to fit. 
+	you get to ten digits, the number runs off the display! Let’s add some 
+	code to Display.svelte to deal with this. If numbers get long, we’ll shrink 
+	their size. We’ll round off digits to the right of the decimal place that 
+	won’t fit, and we’ll use scientific notation for numbers too large to fit. 
 	Go to the 
 	Display.svelte tab and replace the script section with the following:
 
@@ -245,9 +244,9 @@ p.
 	or more digits to the left of the decimal point.
 
 p. 
-	Now let's try adding some operators, so we can add, subtract, multiply, 
+	Now l’t’s try adding some operators, so we can add, subtract, multiply, 
 	divide, and see the result of our calculation with the equal button. 
-	Head back to Calcbtn.svelte, and let's think this through.
+	Head back to Calcbtn.svelte, and let’s think this through.
 p. 
 	Imagine someone enters 4 + 5 &times; 6 = into the calculator. What 
 	should happen? Some calculators interpret this mathematically, and 
@@ -313,7 +312,7 @@ p.
 
 p. 
 	Well, that about wraps it up! There are certainly a few bugs left, and features that could 
-	be added (like handling keystroke entry), but we've built a functional calculator. Now go 
+	be added (like handling keystroke entry), but we’ve built a functional calculator. Now go 
 	to the #[a(href='embed') Embed] post to learn how to embed this component in a 
 	conventional web page.
 

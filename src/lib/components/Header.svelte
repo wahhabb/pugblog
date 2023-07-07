@@ -40,6 +40,11 @@
 							>Moving SvelteKit Sites to Production</a
 						>
 					</li>
+					<li>
+						<a class:active={$page.url.pathname === '/blog/blog1'} href="/blog/blog1"
+							>Making a Blog in SvelteKit Part One</a
+						>
+					</li>
 				</ul>
 			</li>
 			<li><a class:active={$page.url.pathname === '/about'} href="about">About</a></li>

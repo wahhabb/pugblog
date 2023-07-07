@@ -81,13 +81,15 @@ p.
   <a href="/blog/kit2">Dive deeper</a> into SvelteKit, learning how to get data from 
   endpoints.
 p.
-  <span class="red"><b>New!</b></span> 
   Learn how to  <a href="/blog/kit3"> build a SvelteKit site that uses a MySQL database</a>.
-h2  Coming Soon
 p.
-    Learn some ways of hosting SvelteKit apps on the web!
+  Learn some ways of <a href="/blog/kit4">hosting SvelteKit apps on the web</a>—even free!
+p.
+<span class="red"><b>New!</b></span> Learn how to  <a href="/blog/blog/blog1">build a blog with SvelteKit</a> (Part 1—more to come).
+
+//- h2  Coming Soon
+h2  Credits
 p. 
   This site is built using SvelteKit on the Jamstack. It is hosted (free of charge!) by Netlify.
-  Learn about how I built it. 
 
 </template>

@@ -97,3 +97,7 @@ span.code {
   color: red;
   font-weight: 600;
 }
+pre {
+  font-weight: 700;
+  font-size: 1rem;
+}

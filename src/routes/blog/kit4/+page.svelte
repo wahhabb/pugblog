@@ -68,7 +68,7 @@ pre.
     git add origin https://github.com/xxxx/xxx.git
     git push -u origin main
 p.
-    The first line creates a local repository in the directory where you have your code. The second line adds all your files to it (except the ones that SvelteKit has specified in the .gitignore file they provide). The third line commits these files and gives a comment to that commit. For the fifth line, copy the code given on the GitHub page, which replaces the xxx's with your username and repository name. The last line pushes copies of your files up to your repository.
+    The first line creates a local repository in the directory where you have your code. The second line adds all your files to it (except the ones that SvelteKit has specified in the .gitignore file they provide). The third line commits these files and gives a comment to that commit. For the fifth line, copy the code given on the GitHub page, which replaces the xxx’s with your username and repository name. The last line pushes copies of your files up to your repository.
 p.
     Congratulations! You have a GitHub repository. Now we are ready to take the next step, which is to sign up for Vercel.
 
@@ -129,11 +129,6 @@ p.
 p.
     Another low-cost provider for small projects is EvenNode. However, they support the MongoDB database rather than MySQL. But if you choose that, they have plans from 4.50€ monthly, with a 30-day free trial. Heroku supports Node and offers Postgres SQL, which is very similar to MySQL, with modest starting costs. For large-scale production systems, Amazon Web Services and its competitors Google Cloud Platform and Microsoft Azure are standard corporate choices.
 p.
-    Well, we've done it! Whether you’re a hobbyist, doing a small professional project, or wanting to build for a major corporation with millions of users, these are ways to take a SvelteKit site to production.
+    Well, we’ve done it! Whether you’re a hobbyist, doing a small professional project, or wanting to build for a major corporation with millions of users, these are ways to take a SvelteKit site to production.
 </template>
-<style>
-    pre {
-        font-weight: 700;
-        font-size: 1rem;
-    }
-</style>
+

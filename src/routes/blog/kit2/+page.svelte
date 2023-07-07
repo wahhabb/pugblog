@@ -30,8 +30,8 @@ p.
     If we had a !{cd}&lt;script>!{ecd} Section on our page, we might place these lines after 
     the !{cd}&lt;/script>!{ecd}  tag.
 p.
-    Do the same thing on the About page, but make the title, "About My Great App", and the 
-    description content something you like, such as "About Building SvelteKit Skills."
+    Do the same thing on the About page, but make the title, “About My Great App”, and the 
+    description content something you like, such as “About Building SvelteKit Skills.”
 h2  Getting External Data 
 p.
     So far, our simple two-page website is totally static&mdash;that is, every viewer who sees it, 
@@ -47,11 +47,11 @@ p.
     demonstrate that) or by making RESTful calls. Or you might call a web api provided by 
     someone. We will use this last approach in this post.
 p.
-    The simplest case is if we need some external data when a page is first loaded, but don't 
-    need to retrieve it over again during that session. This can be handled by using Svelte's
-    onMount function, which is the commonest of Svelte's lifecycle functions. 
+    The simplest case is if we need some external data when a page is first loaded, but don’t 
+    need to retrieve it over again during that session. This can be handled by using Svelte’s
+    onMount function, which is the commonest of Svelte’s lifecycle functions. 
 p.
-    Let's add a few dad jokes to our About page. To do this, we will call on a simple web api. 
+    Let’s add a few dad jokes to our About page. To do this, we will call on a simple web api. 
     As is common, this web api will 
     return data to us in JSON format, which we will then display on the page. To learn 
     about this simple api, visit <a href='https://icanhazdadjoke.com/api'>its 
@@ -85,7 +85,7 @@ p.
     The other approach is if the endpoint needs to be called from multiple places, or be 
     called on request from a page (say, when a button is clicked). 
 p.
-    Let's change the About page to show a random dad joke each time it is visited. 
+    Let’s change the About page to show a random dad joke each time it is visited. 
     In your src/about directory, create a new file called +page.js, and put 
     the following code in it:
 <Prism language="javascript" code={k2j}  />
@@ -126,7 +126,7 @@ p.
     Now on the command line, enter !{cd}npm run preview!{ecd} and you will see the issue
     has been resolved.
 p.
-    We haven't yet covered the scenario of an endpoint that can be called at any time. To
+    We haven’t yet covered the scenario of an endpoint that can be called at any time. To
     learn that, check out my <a href="/blog/kit3">next post</a> on using MySQL with SvelteKit.
 
 </template>

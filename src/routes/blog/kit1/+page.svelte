@@ -46,7 +46,7 @@ p.
     Where should we create your project? <i>(Return)</i>.<br>
     Which Svelte app template? &mdash; <i>(Skeleton project)</i><br>
     Then it will ask if you want to use TypeScript, ESlint, Prettier, and Playwright. 
-    For now, we won't use TypeScript (choose <i>None</i>), and you can reply No to the 
+    For now, we won’t use TypeScript (choose <i>None</i>), and you can reply No to the 
     other three questions as well.
 p. 
     Next, enter !{cd}npm install!{ecd} and wait for a moment while needed software is installed.
@@ -90,7 +90,7 @@ p.
     browser window updates to show your updated code. This hot updating is one of the 
     features that makes coding in SvelteKit a pleasure.
 p.
-    Let’s add an About page. The route "about" is produced simply by creating an about subdirectory and 
+    Let’s add an About page. The route “about” is produced simply by creating an about subdirectory and 
     adding an +page.svelte file there. Do that, and enter the following code in your new page file:
 <Prism language="html" code={k1h}  />
 p.
@@ -101,7 +101,7 @@ p.
     pages by creating a new file in our routes directory with the special name
      +layout.svelte. Create that, and add the following code:
 <Prism language="html" code={k2h}  />
-<Prism language="html" code={k2s}  />
+<Prism language="css" code={k2s}  />
 p.
     When you save this, you will see a sudden transformation of your page. You now have a 
     simple menu that lets you move between your two pages, and a background color.
@@ -141,7 +141,7 @@ p.
     special about that name; you could call it whatever you like. Create a file in
     that directory called Footer.svelte, and add the following code:
 <Prism language="html" code={k3h}  />
-<Prism language="html" code={k3s}  />
+<Prism language="css" code={k3s}  />
 p.
     The !{cd}export!{ecd} statement is Svelte’s way of identifying that a variable is a 
     property, or prop, that is to be passed to the component. On the line with 
@@ -158,7 +158,7 @@ p.
 p.
     Now return to +layout.svelte, and we’ll import and use this component. Add the 
     following three lines to the beginning of the file:
-<Prism language="html" code={k4j}  />
+<Prism language="js" code={k4j}  />
 p.
     Then, just below the !{cd}&lt;/main&gt;!{ecd} line, add the following line of code
     (replacing my name with yours):
