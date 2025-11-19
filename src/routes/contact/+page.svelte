@@ -12,7 +12,7 @@
     p. 
         You can also send me email at the email address listed on my github account (wahhabb).
     
-    form(name="contact" method="POST" data-netlify="true")
+    form(name="contact" method="POST" data-netlify="true" action="./contact")
         <input type="hidden" name="form-name" value="contact">
 
         div
