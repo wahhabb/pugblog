@@ -18,9 +18,6 @@ p
   a(href="/contact") feedback
   | . 
 
-p.
-  Please note that I am in process of updating this site to reflect SvelteKit 2.0 and Svelte 5. Until this
-  Message is gone, some portions of the site may reflect earlier versions.
 
 h2  So What Are Svelte and SvelteKit?
 
@@ -56,12 +53,15 @@ p.
   have <a href="https://nodejs.dev/download/">Node.js and npm</a> installed on your 
   computer to follow my code examples.
 
-p
-|  Svelte has a <a href="https://svelte.dev/tutorial/svelte/welcome-to-svelte">great tutorial</a>, but let me 
-a(href="/blog/calc") walk you through building a calculator component
-|  that you can put anywhere on your site.
 p.
-  <a href="/blog/embed">Learn to embed</a> the Calculator component in an HTML webpage.
+  Svelte has a <a href="https://svelte.dev/tutorial/svelte/welcome-to-svelte">great tutorial</a>, 
+  but let me give you a <a href="/blog/sv-1">quick walkthrough</a> of some of its key features.
+
+p.
+  See a <a href="/blog/sv-calc">real-world example</a> by walking you through building a calculator component
+  that you can put anywhere on your site.
+p.
+  <a href="/blog/embed">Learn to embed</a> the Calculator component in an ordinary HTML webpage.
 p.
   Learn SvelteKit basics in <a href="/blog/kit1">Getting Started with SvelteKit</a>.
 p.
@@ -72,7 +72,7 @@ p.
 p.
   Learn some ways of <a href="/blog/kit4">hosting SvelteKit apps on the web</a>—even free!
 p.
-  Learn how to  <a href="/blog/blog/blog1">build a blog with SvelteKit</a> (Part 1—more to come).
+  Learn how to  <a href="/blog/kit-blog1">build a blog with SvelteKit</a> (Part 1—more to come).
 
 //- h2  Coming Soon
 h2  Credits
