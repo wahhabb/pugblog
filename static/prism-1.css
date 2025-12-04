@@ -1,5 +1,7 @@
 /* PrismJS 1.27.0
 https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript&plugins=show-language+highlight-keywords+toolbar */
+
+/* Slightly modified by Wahhab Baldwin */
 code[class*='language-'],
 pre[class*='language-'] {
 	color: #f8f8f2;

@@ -90,9 +90,13 @@ footer {
   color: var(--brown);
 }
 
-span.code {
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+code, span.code {
+  font-family: "Anonymous Pro", monospace;
+  font-weight: 500;
+  /* font-size: 1em; */
+  background-color: #EDEAE2;
 }
+
 .red {
   color: red;
   font-weight: 600;
@@ -100,4 +104,5 @@ span.code {
 pre {
   font-weight: 700;
   font-size: 1rem;
+  background-color: #E7E1DD;
 }

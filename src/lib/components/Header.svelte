@@ -8,18 +8,28 @@
 		<ul class="menu">
 			<li><a class:active={$page.url.pathname === '/'} sveltekit:prefetch href="/">Home</a></li>
 			<li>
-				<a class:active={$page.url.pathname.includes('/blog')} href="/blog">Blog &dtrif;</a>
+				<p class:active={$page.url.pathname.includes('/sv-')}>Svelte &dtrif;</p>
 				<ul class="dropdown">
 					<li>
-						<a class:active={$page.url.pathname === '/blog/calc'} href="/blog/calc"
+						<a class:active={$page.url.pathname === '/blog/sv-1'} href="/blog/sv-1"
+							>Get to Know Svelte</a
+						>
+					</li>
+					<li>
+						<a class:active={$page.url.pathname === '/blog/sv-calc'} href="/blog/sv-calc"
 							>Build a Svelte Calculator Component</a
 						>
 					</li>
 					<li>
-						<a class:active={$page.url.pathname === '/blog/embed'} href="/blog/embed"
+						<a class:active={$page.url.pathname === '/blog/sv-embed'} href="/blog/sv-embed"
 							>Embed a Svelte Component into Your Existing Website</a
 						>
 					</li>
+				</ul>
+			</li>
+			<li>
+				<p class:active={$page.url.pathname.includes('/kit')} href="/blog">SvelteKit &dtrif;</p>
+				<ul class="dropdown">
 					<li>
 						<a class:active={$page.url.pathname === '/blog/kit1'} href="/blog/kit1"
 							>SvelteKit 1&mdash;Getting Started with SvelteKit</a
@@ -41,13 +51,13 @@
 						>
 					</li>
 					<li>
-						<a class:active={$page.url.pathname === '/blog/blog1'} href="/blog/blog1"
+						<a class:active={$page.url.pathname === '/blog/kit-blog1'} href="/blog/kit-blog1"
 							>Making a Blog in SvelteKit Part One</a
 						>
 					</li>
 				</ul>
 			</li>
-			<li><a class:active={$page.url.pathname === '/about'} href="about">About</a></li>
+			<li><a class:active={$page.url.pathname === '/about'} href="/about">About</a></li>
 			<li><a class:active={$page.url.pathname === '/contact'} href="/contact">Contact</a></li>
 		</ul>
 	</nav>
@@ -98,7 +108,7 @@
 		cursor: pointer;
 	}
 
-	nav.primary-navigation a.active {
+	nav.primary-navigation .active {
 		color: var(--hover);
 		-webkit-text-stroke: 1px var(--hover);
 		-webkit-text-stroke: 0.5px var(--hover);

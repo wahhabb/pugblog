@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-	<link rel="stylesheet" href="/prism-1.css" />
+	<link rel="stylesheet" href="/prism-vs.css" />
 	<style>
 		pre[class*='language-'] {
 			margin-bottom: 0;

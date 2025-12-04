@@ -1,27 +1,3 @@
-<script>
-	import Prism from '../lib/components/PrismJS.svelte';
-
-	//	let language = 'html';
-	let code1 = `    
-  import Calcbtn from './Calcbtn.svelte'
-  import Display from './Display.svelte'
-  const setOperColor = (event) => {
-    let selected = event.detail.symbol;
-    if (selected === "=")
-      selected = "";
-    let opers = document.getElementsByClassName("oper"); `;
-	let code_css = `body {
-		padding: 2em;
-		background-color: antiquewhite;
-	}`;
-	let code_html = `<h1>Calculator</h1>
-      <div class="calc">
-      <Display />
-          <Calcbtn use="fn" on:func = {setOperColor} >AC</Calcbtn>
-          <Calcbtn use="plusminus"><sup>&plus;</sup>/<sub>&minus;</sub></Calcbtn>
-          <Calcbtn use="fn">%</Calcbtn>`;
-</script>
-
 <svelte:head>
 	<title>Deep Web Works--Svelte/SvelteKit Blog</title>
 	<meta
@@ -42,24 +18,35 @@ p
   a(href="/contact") feedback
   | . 
 
+p.
+  Please note that I am in process of updating this site to reflect SvelteKit 2.0 and Svelte 5. Until this
+  Message is gone, some portions of the site may reflect earlier versions.
+
 h2  So What Are Svelte and SvelteKit?
+
 img.flt_l(src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg" height=90 alt="Svelte Logo")
 
 p.
   As you likely know, <a href="https://svelte.dev/">Svelte</a> is a framework for building 
   user interfaces. JavaScript based,
   it is compared to React and Vue. Unlike these, however, it is a compiler, does not use a 
-  shadow DOM, or link in a run-time library, making it small and fast. It is also much easier
-  to learn. StackOverflow’s recent survey showed Svelte as the most-loved web framework.
+  shadow DOM or link in a run-time library, making it small and fast. It is also much easier
+  to learn. It lets you write clear and compact components that are highly efficient.
 
 p. 
   <a href="https://kit.svelte.dev/">SvelteKit</a> is a framework for building web 
-  applications that provides routing, client-side and/or server-side rendering, code-splitting, and more. 
+  applications that provides routing, client-side and/or server-side rendering, code-splitting, 
+  and more, using Svelte. 
   It is comparable to Next in React or Nuxt in Vue. It makes it quick and easy to 
-  develop sites (like this one!) with a great developer experience. Version 1.0 was released in August, 2022,
-   and although it is new, it is used in production in sites 
-  like nytimes.com. While Svelte was the fifth most-popular
-  <a href="https://stackdiary.com/front-end-frameworks/"></a>front-end framework from 2020 through February, 2022, I am convinced that now that SvelteKit is in production, Svelte and SvelteKit will grow rapidly and become a major force in web development.
+  develop sites (like this one!) with a great developer experience. Version 2.0 was released
+  in December, 2022, and Svelte 5.0 was released in October, 2023.
+  It is used in production in sites 
+  like nytimes.com. In 2024, 
+  <a href="https://survey.stackoverflow.co/2024/">Stack Overflow</a> found that 73% of developers
+  that used it want to keep working with Svelte and SvelteKit.
+  In fact, they used it themselves for building their 2024 Developer Survey results site!
+  I am convinced that now that SvelteKit is maturing, Svelte and SvelteKit will continue to grow and 
+  become a major force in web development.
   In any event, it’s fun learning and using them!
 
 h2 Let’s Dive In!
@@ -70,7 +57,7 @@ p.
   computer to follow my code examples.
 
 p
-|  Svelte has a <a href="https://svelte.dev/tutorial/basics">great tutorial</a>, but let me 
+|  Svelte has a <a href="https://svelte.dev/tutorial/svelte/welcome-to-svelte">great tutorial</a>, but let me 
 a(href="/blog/calc") walk you through building a calculator component
 |  that you can put anywhere on your site.
 p.
@@ -85,11 +72,12 @@ p.
 p.
   Learn some ways of <a href="/blog/kit4">hosting SvelteKit apps on the web</a>—even free!
 p.
-<span class="red"><b>New!</b></span> Learn how to  <a href="/blog/blog/blog1">build a blog with SvelteKit</a> (Part 1—more to come).
+  Learn how to  <a href="/blog/blog/blog1">build a blog with SvelteKit</a> (Part 1—more to come).
 
 //- h2  Coming Soon
 h2  Credits
 p. 
-  This site is built using SvelteKit on the Jamstack. It is hosted (free of charge!) by Netlify.
+  This site is built using SvelteKit on the Jamstack. It is hosted (free of charge!) by Netlify. 
+  The sample apps source code is on my Github and are hosted (also free of charge) by Vercel.
 
 </template>

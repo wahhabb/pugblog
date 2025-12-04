@@ -1,18 +1,17 @@
 <script lang="ts">
-	import { setContext } from 'svelte'
 	import CalcUI from './CalcUI.svelte';
 	let { fontSize = '16px' } = $props();		
 	let calcValue: number = $state(0);    
 	let dispString: string = $state("0") 
 	let lastOper: string = $state('')
-	let lastButton = $state({ face: '', type: '' });
+	let lastButton: any = $state('')
 	let inDecimal = 0
 	let operand: number = 0;  
 	let rounded: number
 	const maxDigits = 12;	// how many digits can display show
 
 	// Calculate the value to be displayed
-	function handleMessage(button) {
+	function handleMessage(button: {type: string, face: string}) {
 			switch (button.type) {
 			case "pm":
 				calcValue = - calcValue	
@@ -76,7 +75,7 @@
 		lastButton = button;
 	};
 	
-	const toDispString = (val:number) : string => {
+	const toDispString = (val: number): string => {
 		let leftDigits = Math.max(Math.floor(Math.log10(val)), 0) + 1;
 		if (leftDigits > 10) {
 			return val.toExponential(8);
@@ -94,5 +93,5 @@
 <!-- <p>->{lastButton.type} {lastOper} op {operand} cv {calcValue} ds {toDispString(calcValue)}&lt;-</p> -->
 
 <div id="calculator" style="font-size:{fontSize}" >
-<CalcUI onMessage={handleMessage} dispString={toDispString(calcValue) }  />
+  <CalcUI onMessage={ handleMessage } dispString={ toDispString(calcValue) } />
 </div>
