@@ -3,8 +3,7 @@ import nodemailer from 'nodemailer';
 import type { Actions } from './$types';
 import { GOOGLE_APP_PASSWORD } from '$env/static/private';
 
-console.log('&&^&&&&& ' + GOOGLE_APP_PASSWORD)
-// Create a transporter for mail.deepwebworks.com
+// Create a transporter for gmail
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -16,11 +15,18 @@ const transporter = nodemailer.createTransport({
 export const actions: Actions = {
 	default: async ({ request }) => {
 		const data = await request.formData();
+		const honeypot = data.get('first-name') as string;
 		const name = data.get('name') as string;
 		const email = data.get('email') as string;
 		const message = data.get('message') as string;
 
 		// Validate inputs
+
+		if (honeypot) {
+			return {
+				success: true // Don't send email; filled out by bot
+			}
+		}
 		if (!name || !email || !message) {
 			return fail(400, {
 				error: 'All fields are required'

@@ -44,6 +44,11 @@
 		}}
 	>
 		<div class="form-group">
+			<label for="name">First Name: *</label>
+			<input type="text" id="first-name" name="first-name" />
+		</div>
+
+		<div class="form-group">
 			<label for="name">Name:</label>
 			<input type="text" id="name" name="name" required />
 		</div>
@@ -85,6 +90,14 @@
 		margin-bottom: 1.5rem;
 	}
 
+	.form-group:nth-child(1) {
+		z-index:-1;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 0;
+	}
 	label {
 		display: block;
 		margin-bottom: 0.5rem;
