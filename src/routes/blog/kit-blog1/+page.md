@@ -68,7 +68,13 @@ Now let's give it a try. Within the `post1` directory created above, add a file 
 This wasn't *that* hard!
 ```
 
-Navigate from the open home page to `localhost:5153/blob/blog1` and admire your first entry.
+Navigate from the open home page to `localhost:5153/blog/post1` and admire your first entry.
+
+To make it easier to get to this page, edit the `+page.svelte` file for the home page. Replace the second line (that starts with a `p` tag) by
+
+```html
+h2>See my <a href="/blog/post1">First blog post</a></h2>
+```
 
 ## Style Our Blogs
 
@@ -198,7 +204,7 @@ Now that we have the support we need to display our blogs, we're ready to add on
 
 At this point, you can navigate your browser page showing your SvelteKit home page to /blog/post1, and you will see your blog page, complete with sidebar menu and (perhaps) selected fonts. We'll say more about use of fonts in SvelteKit in a later post.
 
-Of course, we also want the ability to include Svelte components on our page. In the same directory as our blog post, create a file called `copyright.svelte` with the following code:
+Of course, we also want the ability to include Svelte components on our page. Normally, a copyright statement would be part of the layout file, but to demonstrate, we'll use the component in our Markdown file. In the same directory as our blog post, create a file called `copyright.svelte` with the following code:
 
 ```html
 <p>This blog copyright &copy; {new Date().getFullYear()} by Wahhab.</p>
@@ -209,11 +215,21 @@ Of course, we also want the ability to include Svelte components on our page. In
     }
 </style>
 ```
+At the top of `+page.md` import this file:
+
+```js
+<script>
+    import Copyright from "./copyright.svelte"
+</script>
+```
 
 Now go to the bottom of `+page.md` and add the single line
 
 `<Copyright />`
 
-and you will see the italicized copyright message appear at the bottom of your blog page.
+and you will see the italicized copyright message appear at the bottom of your blog page. In a real project, of course, the copyright component would be kept in a directory like `$lib/components`.
 
-However, this page has a number of problems. It does not have a useful title, and has no meta description for search engines to display. Also, there is no metadata for this post, such as date, author, publication status, or tags or categories. And we have no automated mechanism for creating the menu of posts. To fix all this, we’ll need to make some changes. We’ll go into that and more on my next post.
+However, this page still has a number of problems. It does not have a useful title, and has no meta description for search engines to display. Also, there is no metadata for this post, such as date, author, publication status, or tags or categories. And we have no automated mechanism for creating the menu of posts. To fix all this, we’ll need to make some changes. We’ll go into that and more on my [next post](kit-blog2).
+
+
+[Next→](kit-blog2)
