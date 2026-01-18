@@ -50,13 +50,62 @@ In order to gain access to the front matter, we will need to treat the Markdown 
 
 Let's start with the sample blog we built in the last post. If you skipped that, you can get it from [my Github](https://github.com/wahhabb/blog_b1). 
 
+For convenience, let's add a minimal header to the site. Under `src/lib` create a file called `Header.svelte` with the following code:
+
+```html
+<header>
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+</header>
+
+<style>
+	:global(body) {
+		margin: 0 2em;	
+	}
+	header {
+	  	display: flex;
+  		background-color: DodgerBlue;
+		padding: 1em;
+        margin: 0 -2em;
+		a {
+			background-color: darkblue;
+			font-size: 1.3em;
+			color: white;
+			padding: 1em 3em;
+			margin: 10px;
+		}
+	}
+</style>
+```
+
+Then change `src/routes/+layout.svelte` to include our new component:
+
+```svelte
+<script>
+	import favicon from '$lib/assets/favicon.svg';
+	import Header from '$lib/Header.svelte';
+
+	let { children } = $props();
+</script>
+<svelte:head>
+	<link rel="icon" href={favicon} />
+</svelte:head>
+
+<Header />
+{@render children()}
+
+```
+A bit more housekeeping before we get going. Go to `/static/blog.css` and delete everything from line 51 onwards (the `media` statements). The attempt to make it responsive isn't working well, and we're better off without it.
+
 For now, we'll continue to have a minimal home page. We'll just change it to provide a link to the blog page, which will list our blog posts in reverse chronological order (newest first). So just navigate to `src/routes/+page.svelte`, our home page, and change the second line to read
 
 ```html
 <h2>Visit my <a href="/blog">Blog</a></h2>
 ```
 
-Since we're making blog pages elsewhere, delete the folder `src/blog/post1` and its contents. Now, let's create three blog posts. Create a folder under `src` called `posts`. Within that, create new files that we'll call `blog1.md`, `blog2.md` and `blog3.md`.Here's the content of `blog1.md`:
+Since we're making blog pages elsewhere, delete the folder `src/blog/post1` and its contents. 
+
+Now, we're ready to move forward. Let's create three blog posts. Create a folder under `src` called `posts`. Within that, create new files that we'll call `blog1.md`, `blog2.md` and `blog3.md`. Here's the content of `blog1.md`:
 
 ```md
 ---
@@ -142,7 +191,7 @@ export async function GET() {
 
 Several other authors show versions of this function, although many  use earlier versions of Svelte and SvelteKit (see Credits, below). However, most do not use the `eager: true` statement. Since this data is often retrieved for every page of the blog, using lazy loading can slow  performance as the number of blog posts increases. 
 
-When new posts are added, the blog will be rebuilt, if we are using hosts like Netlify or Vercel. Therefore, we don't need to redo the work of analyzing and sorting the posts every time this function is called. For efficiency, I cache the value the first time it is generated and just use the cached value on all future calls.
+When new posts are added, the blog will be rebuilt, assuming we are using hosts like Netlify or Vercel. Therefore, we don't need to redo the work of analyzing and sorting the posts every time this function is called. For efficiency, I cache the value the first time it is generated and just use the cached value on all future calls.
 
 This function returns the metadata, or front matter. It would be possible to get the post content here as well (see [here](https://www.aaronhubbard.dev/blogposts/text-from-module)). I extract the slug from the filename and add it to the metadata, and then sort the posts newest to oldest.
 
@@ -184,7 +233,7 @@ Now let's create a blog page that will display all this information. Under `blog
 </style>
 ```
 
-This straightforwardly loops through the blog posts and displays their metadata. But how does  `$props()` get the data? We'll do that through another file in the same folder, `+page.server.js`. Create that file and add this code to it:
+This straightforwardly loops through the blog posts and displays their metadata. But how does `$props()` get the data? We'll do that through another file in the same folder, `+page.server.js`. Create that file and add this code to it:
 
 ```js
 export async function load({ fetch }) {
@@ -195,9 +244,9 @@ export async function load({ fetch }) {
 ```
 SvelteKit will automatically run this code when the page is loaded and pass the return value through the `props`.
 
-We don't need the `+layout.svelte` file we have in the `blog` folder for this page, but we will want to use it for the posts. So let's create the folder that will display blog posts. Under the `blog` folder, add a folder named `[post]`. This odd naming convention means that any url that consists of `blog` plus something else, like `mysite.com/blog/visiting-greenland`, will use the `+page.svelte` code in this folder, and that `visiting-greenlad` will be passed to that page as a parameter. Move the file `+layout.svelte` from the `blog` folder to this new folder. 
+We don't need the `+layout.svelte` file we have in the `blog` folder for this page, but we will want to use it for the posts. So let's create the folder that will display blog posts. Under the `blog` folder, add a folder named `[post]`. This odd naming convention means that any url that consists of `blog` plus something else, like `mysite.com/blog/visiting-greenland`, will use the `+page.svelte` code in this folder, and that `visiting-greenlad` will be passed to that page as a parameter (and use data from `visiting-greenland.md`). Move the file `+layout.svelte` from the `blog` folder to this new folder. 
 
-At this point, we can see some results! Navigate to the top lovel directory of your project in a terminal window and run
+At this point, we can see some results! Navigate to the top level directory of your project in a terminal window and run
 `npm run dev -- --open`
 This will bring up our minimal home page. Click on the home page link that says "Visit my blog." You should see a list of our three blog pages' titles, authors, dates, and summaries, sorted in date order.
 
@@ -215,7 +264,7 @@ The title on each entry has a link to the blog page, but there's no page there y
 </script>
 
 <svelte:head>
-	<!-- Be sure to add your image files and un-comment the lines below -->
+	<!-- Be sure to add your image files and un-comment the lines below if your blog uses images -->
 	<title>{title}</title>
 	<meta data-key="description" name="description" content={summary} />
 	<meta property="og:type" content="article" />
@@ -282,7 +331,6 @@ export async function load({ fetch }) {
 Now we can show the results in the sidebar, by updating `+layout.svelte` to look as follows:
 
 ```svelte
-<!-- This is adapted from a W3 Schools tutorial. -->
   <script>
     let { data, children } = $props();
   </script>
@@ -302,8 +350,6 @@ Now we can show the results in the sidebar, by updating `+layout.svelte` to look
       Author: {post.author}<br />
       <i>{post.summary}</i></a>
   	{/each}
-
-    <!-- <Sidebarlist /> -->
   </div>
   
   <!-- Page content -->
@@ -311,9 +357,11 @@ Now we can show the results in the sidebar, by updating `+layout.svelte` to look
      {@render children()}
   </div> 
 ```
-Navigate to `blog/blog2`, or click its link from your `blog` page, and you should see both the post with its metadata above it, and the list of recent posts in the sidebar.
+Navigate to `blog/blog2`, or click its link from your `blog` page, and you should see both the post with its metadata above it, and the list of recent posts in the sidebar. Click on one of the sidebar entries, and the corresponding post will pop up. While our content isn't the most enlightening, and our design is far from elegant, we have all the bones of a working blog!
 
-At this point, the way forward is clear, and I will leave it to you to carry it out. We will want a `category` page that will give a clickable link of categories of your posts. First, you will need to add a category to the metadata of each post, and update places where metadata is displayed to list category as well. 
+At this point, the way forward is clear, and I will leave it to you to carry it out. If you want different formatting for your content, change the `blog.css` file. Because we are loading the HTML dynamically, we can't override the CSS post by post.
+
+We will want a `category` page that will give a clickable link of categories of your posts. First, you will need to add a category to the metadata of each post, and update places where metadata is displayed to list category as well. 
 
 Next create a `category` folder below `blog` and add a copy of `blog/+page.server.js` to it. Create the `+page.svelte` page in the same folder, and in its `<script>` section, create a `$derived()` alphabetical list of the unique categories in the posts passed to it. This is straightforward Javascript. You can use the `Set()` constructor on the array of categories or just loop through the sorted list, including only unique entries. Then in the HTML code, have a loop like
 ```svelte
