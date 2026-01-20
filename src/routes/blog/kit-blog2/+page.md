@@ -371,7 +371,7 @@ Next create a `category` folder below `blog` and add a copy of `blog/+page.serve
 ```
 Now create the folder `blog/categories/[category]`, and using the same approach as in the `[post]` folder, but getting the full list of posts, filter for those with the desired category. The same approach can be used for tags, the only difference being that tags will be in an array for each post.
 
-One issue you will see when you run your blog is what is called FOUT: the Flash Of Unstyled Text. This is caused by the wait to download the fonts from Google Fonts. To solve this problem, host the fonts locally using FontSource. Read [their documentation](https://fontsource.org/docs/guides/svelte) and you will find it straightforward.
+It doesn't matter for this tiny sample, but one way you can improve performance in a larger site is to host fonts locally rather than getting them from Google. This can speed up initial load if you currently preload fonts, or if you don't, prevent what is called FOUT: the Flash Of Unstyled Text. Google's site analysis for this page on mobile went from 69 to 88 just by making this one change. (It's 92 on desktop. It would be higher, but I redirect the site). It's easiest to host the fonts locally using FontSource. Read [their documentation](https://fontsource.org/docs/guides/svelte) and you will find it straightforward.
 
 I hope you have enjoyed this journey! I certainly enjoyed scouting it out for you. I used many sources; here are a few that were most helpful to me.
 
