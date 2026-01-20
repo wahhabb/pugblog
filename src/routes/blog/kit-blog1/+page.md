@@ -113,12 +113,13 @@ We also need to place a css file, `blog.css`, in `/src/static`:
     font-family: "Alegreya", serif;
     font-size: 120%;
     line-height: 1.4;
-  }
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: "Roboto", sans-serif;
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: "Roboto", sans-serif;
+    }
   }
   /* The side navigation menu */
   .sidebar {
@@ -182,6 +183,13 @@ We also need to place a css file, `blog.css`, in `/src/static`:
   }
 ```
 
+We'll load the fonts from Google Fonts. To do this, add the following three lines of code to `app.html` just before the line that reads `	%sveltekit.head%`
+
+```html
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">	
+```
 Now that we have the support we need to display our blogs, we're ready to add one. There are several approaches to doing this, but we'll start with the approach we already know. In the directory `/src/routes/blog/post1`,  replace the contents of `+page.md` with some content that I based on the Wikipedia article on Svelte:
 
 ```markdown
