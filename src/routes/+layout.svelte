@@ -1,7 +1,8 @@
 <script>
 	let { children } = $props();
 	import Header from '$lib/components/Header.svelte';
-</script>
+	import '@fontsource-variable/merriweather/wght.css';
+	</script>
 
 
 <Header />
