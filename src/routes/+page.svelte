@@ -35,17 +35,13 @@ p.
   applications that provides routing, client-side and/or server-side rendering, code-splitting, 
   and more, using Svelte. 
   It is comparable to Next in React or Nuxt in Vue. It makes it quick and easy to 
-  develop sites (like this one!) with a great developer experience. Version 2.0 was released
-  in December, 2022, and Svelte 5.0 was released in October, 2023.
+  develop sites (like this one!) with a great developer experience. Version 3.0 was released
+  in October, 2026, and Svelte 5.0 was released in October, 2023.
   It is used in production in sites 
-  like nytimes.com. In 2024, 
-  <a href="https://survey.stackoverflow.co/2024/">Stack Overflow</a> found that 73% of developers
-  that used it want to keep working with Svelte and SvelteKit.
-  In fact, they used it themselves for building their 2024 Developer Survey results site!
-  I am convinced that now that SvelteKit is maturing, Svelte and SvelteKit will continue to grow and 
-  become a major force in web development.
-  In any event, it’s fun learning and using them!
-
+  like nytimes.com. In 2026, both Svelte and SvelteKit were highly admired, according to 
+  <a href="https://survey.stackoverflow.co/2026/technology/data">Stack Overflow</a> survey, scoring 59% and 64% respectively
+  . However, actual use
+ is stil well behind React and Next.js, even though they are less admired (47% and 39%).
 h2 Let’s Dive In!
 
 p. 

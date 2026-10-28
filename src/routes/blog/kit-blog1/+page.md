@@ -235,7 +235,7 @@ Now go to the bottom of `+page.md` and add the single line
 
 `<Copyright />`
 
-and you will see the italicized copyright message appear at the bottom of your blog page. In a real project, of course, the copyright component would be kept in a directory like `$lib/components`.
+and you will see the italicized copyright message appear at the bottom of your blog page. In a real project, of course, the copyright component would be kept in a directory like `#lib/components`.
 
 However, this page still has a number of problems. It does not have a useful title, and has no meta description for search engines to display. Also, there is no metadata for this post, such as date, author, publication status, or tags or categories. And we have no automated mechanism for creating the menu of posts. To fix all this, we’ll need to make some changes. We’ll go into that and more on my [next post](kit-blog2).
 

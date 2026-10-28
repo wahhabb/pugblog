@@ -9,7 +9,7 @@
 
 # Embedding a Svelte Component in HTML
 
-<img class="flt_r" src="/CalcEmbed.png" style="width:25%" alt="Embedded Svelte Component" />
+<img class="flt_r" src="/demo.png" style="width:25%" alt="Embedded Svelte Component" />
 
 Svelte and related frameworks build components that can be reused across a website. HTML5 supports a similar idea called Web Components that allows developers to create reusable components. However, there is some complexity involved in using them. Fortunately, if you know Svelte, you can generate these web components directly from a Svelte component! This allows your useful components to be used in any website.
 

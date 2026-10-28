@@ -82,8 +82,8 @@ Then change `src/routes/+layout.svelte` to include our new component:
 
 ```svelte
 <script>
-	import favicon from '$lib/assets/favicon.svg';
-	import Header from '$lib/Header.svelte';
+	import favicon from '#lib/assets/favicon.svg';
+	import Header from '#lib/Header.svelte';
 
 	let { children } = $props();
 </script>

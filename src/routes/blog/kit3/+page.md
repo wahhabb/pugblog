@@ -83,7 +83,7 @@ In order to make the list of state names available to our page, we will create a
 
 ```javascript
 import mysql from "mysql2/promise";
-import { myPoolFn } from "$lib/db/mysql.js";
+import { myPoolFn } from "#lib/db/mysql.js";
 
 export async function load() {
   try {

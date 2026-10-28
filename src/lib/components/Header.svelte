@@ -1,69 +1,102 @@
 <script>
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 </script>
 
 <header>
 	<p class="logo"><a href="/">Deep Web Works</a></p>
 	<nav class="primary-navigation">
 		<ul class="menu">
-			<li><a class:active={$page.url.pathname === '/'} sveltekit:prefetch href="/">Home</a></li>
 			<li>
-				<p class:active={$page.url.pathname.includes('/sv-')}>Svelte &dtrif;</p>
+				<a
+					class:active={page.url.pathname === '/'}
+					sveltekit:prefetch
+					href="/"
+				>Home</a>
+			</li>
+
+			<li>
+				<p class:active={page.url.pathname.includes('/sv-')}>Svelte ▾</p>
+
 				<ul class="dropdown">
 					<li>
-						<a class:active={$page.url.pathname === '/blog/sv-1'} href="/blog/sv-1"
-							>Get to Know Svelte</a
-						>
+						<a
+							class:active={page.url.pathname === '/blog/sv-1'}
+							href="/blog/sv-1"
+						>Get to Know Svelte</a>
 					</li>
 					<li>
-						<a class:active={$page.url.pathname === '/blog/sv-calc'} href="/blog/sv-calc"
-							>Build a Svelte Calculator Component</a
-						>
+						<a
+							class:active={page.url.pathname === '/blog/sv-calc'}
+							href="/blog/sv-calc"
+						>Build a Svelte Calculator Component</a>
 					</li>
 					<li>
-						<a class:active={$page.url.pathname === '/blog/sv-embed'} href="/blog/sv-embed"
-							>Embed a Svelte Component into Your Existing Website</a
-						>
+						<a
+							class:active={page.url.pathname === '/blog/sv-embed'}
+							href="/blog/sv-embed"
+						>Embed a Svelte Component into Your Existing Website</a>
 					</li>
 				</ul>
 			</li>
 			<li>
-				<p class:active={$page.url.pathname.includes('/kit')} href="/blog">SvelteKit &dtrif;</p>
+				<p
+					class:active={page.url.pathname.includes('/kit')}
+					href="/blog"
+				>SvelteKit ▾</p>
+
 				<ul class="dropdown">
 					<li>
-						<a class:active={$page.url.pathname === '/blog/kit1'} href="/blog/kit1"
-							>SvelteKit 1&mdash;Getting Started with SvelteKit</a
-						>
+						<a
+							class:active={page.url.pathname === '/blog/kit1'}
+							href="/blog/kit1"
+						>SvelteKit 1—Getting Started with SvelteKit</a>
 					</li>
 					<li>
-						<a class:active={$page.url.pathname === '/blog/kit2'} href="/blog/kit2"
-							>SvelteKit 2&mdash;Further Adventures with SvelteKit</a
-						>
+						<a
+							class:active={page.url.pathname === '/blog/kit2'}
+							href="/blog/kit2"
+						>SvelteKit 2—Further Adventures with SvelteKit</a>
 					</li>
 					<li>
-						<a class:active={$page.url.pathname === '/blog/kit3'} href="/blog/kit3"
-							>Use SvelteKit with MySQL</a
-						>
+						<a
+							class:active={page.url.pathname === '/blog/kit3'}
+							href="/blog/kit3"
+						>Use SvelteKit with MySQL</a>
 					</li>
 					<li>
-						<a class:active={$page.url.pathname === '/blog/kit4'} href="/blog/kit4"
-							>Moving SvelteKit Sites to Production</a
-						>
+						<a
+							class:active={page.url.pathname === '/blog/kit4'}
+							href="/blog/kit4"
+						>Moving SvelteKit Sites to Production</a>
 					</li>
 					<li>
-						<a class:active={$page.url.pathname === '/blog/kit-blog1'} href="/blog/kit-blog1"
-							>Making a Blog in SvelteKit Part One</a
-						>
+						<a
+							class:active={page.url.pathname === '/blog/kit-blog1'}
+							href="/blog/kit-blog1"
+						>Making a Blog in SvelteKit Part One</a>
 					</li>
 					<li>
-						<a class:active={$page.url.pathname === '/blog/kit-blog2'} href="/blog/kit-blog2"
-							>Making a Blog in SvelteKit Part Two</a
-						>
+						<a
+							class:active={page.url.pathname === '/blog/kit-blog2'}
+							href="/blog/kit-blog2"
+						>Making a Blog in SvelteKit Part Two</a>
 					</li>
 				</ul>
 			</li>
-			<li><a class:active={$page.url.pathname === '/about'} href="/about">About</a></li>
-			<li><a class:active={$page.url.pathname === '/contact'} href="/contact">Contact</a></li>
+
+			<li>
+				<a
+					class:active={page.url.pathname === '/about'}
+					href="/about"
+				>About</a>
+			</li>
+
+			<li>
+				<a
+					class:active={page.url.pathname === '/contact'}
+					href="/contact"
+				>Contact</a>
+			</li>
 		</ul>
 	</nav>
 </header>

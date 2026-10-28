@@ -1,7 +1,7 @@
 import { fail } from '@sveltejs/kit';
 import nodemailer from 'nodemailer';
 import type { Actions } from './$types';
-import { GOOGLE_APP_PASSWORD } from '$env/static/private';
+import { GOOGLE_APP_PASSWORD } from '$app/env/private';
 
 // Create a transporter for gmail
 const transporter = nodemailer.createTransport({

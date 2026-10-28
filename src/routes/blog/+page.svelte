@@ -11,8 +11,8 @@
 <template lang="pug">
 	h1  Blog
 	p. 
-		This blog was first posted in May, 2022, and was updated in 2023 with the 
-		new routing and other changes to SvelteKit that came with SvelteKit 1.0. Check back for new posts!
+		This blog was first posted in May, 2022, and has been updated most recently in late 2026 with the 
+		support for Svelte 5 and  SvelteKit 3. Check back for new posts!
 	a.grid(href="/blog/calc")
 		div
 			h2 	Build a Calculator Component in Svelte (that you can use in your current websites)

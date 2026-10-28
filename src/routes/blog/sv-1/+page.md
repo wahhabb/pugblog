@@ -7,7 +7,7 @@
 </svelte:head>
 
 <script>
-    import ColorButtons from '$lib/components/ColorButtons.svelte';
+    import ColorButtons from '#lib/components/ColorButtons.svelte';
 </script>
 
 # Get to Know Svelte
@@ -219,9 +219,9 @@ Now create the child component, AddButton.svelte:
 </style>
 
 ```
-We see here that the child component is passed an amount that clicking on it should add to the total with each click. It is also passed a function in the parent that can do that adding so the total is displayed. The child, meanwhile, invokes the parent's function when clicked. We will used this technique in the next post.
+We see here that the child component is passed an amount that clicking on it should add to the total with each click. It is also passed a function in the parent that can do that adding so the total is displayed. The child, meanwhile, invokes the parent's function when clicked. We will use this technique in the next post.
 
-If data needs to be shared between components not directly related as parent/child, Svelte offers the Store as one way of handling that. The store is can be subscribed to by various components, either as read-only or as writable. But look at the Svelte documentation for Stores for details on this and other ways of sharing data between components.
+If data needs to be shared between components not directly related as parent/child, Svelte offers the Store as one way of handling that. The Store is can be subscribed to by various components, either as read-only or as writable. But look at the Svelte documentation for Stores for details on this and other ways of sharing data between components.
 
 Let's go on to building something closer to a real app. In the next post, we'll build a calculator component.
 
